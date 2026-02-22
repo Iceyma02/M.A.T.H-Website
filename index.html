@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +57,9 @@
     }
     .logo-img {
       height: 40px;
-      width: auto;
+      width: 40px;           /* Make it square */
+      object-fit: cover;      /* Crop to fill the circle */
+      border-radius: 50%;     /* Make it circular */
     }
     .logo-text {
       font-size: 1.6rem;
@@ -1010,9 +1011,9 @@
           <p style="margin-top: 2rem; color: #b0c4de;"><i class="fas fa-map-pin"></i> Serving clients globally.</p>
         </div>
 
-        <!-- Contact Form (Formspree) -->
+        <!-- Contact Form (Formspree) – UPDATED WITH YOUR ENDPOINT -->
         <div class="contact-form" data-aos="fade-left">
-          <form action="https://formspree.io/f/your-endpoint" method="POST">
+          <form action="https://formspree.io/f/meelrpqj" method="POST">
             <div class="form-group">
               <input type="text" name="name" placeholder="Your name" required>
             </div>
@@ -1077,14 +1078,8 @@
       navLinks.classList.remove('active');
     }
 
-    // Form submission alert (remove after setting real Formspree endpoint)
-    document.querySelector('form').addEventListener('submit', function(e) {
-      if (this.action.includes('your-endpoint')) {
-        e.preventDefault();
-        alert('Please replace the form action with your actual Formspree endpoint.');
-      }
-    });
+    // Form submission alert – removed because endpoint is now real.
+    // (No need for alert anymore, the form will submit to Formspree.)
   </script>
 </body>
 </html>
-```
