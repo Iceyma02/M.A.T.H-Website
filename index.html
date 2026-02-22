@@ -1,0 +1,1090 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MA TechHub – Financial Analytics for FinTech & SaaS</title>
+  <meta name="description" content="We build financial dashboards, investor reports, and custom tools for high‑growth startups. Real projects, real impact.">
+  <!-- Favicon – replace with your own favicon.png -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Fonts, Icons, AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    /* === CSS (same as before, with added pricing styles) === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e1e2f;
+      background-color: #ffffff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 20, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      z-index: 1000;
+      padding: 0.8rem 0;
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .logo-img {
+      height: 40px;
+      width: auto;
+    }
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, #aaccff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      font-weight: 500;
+      color: #f0f4ff;
+    }
+    .nav-links a {
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: #3b82f6;
+    }
+    .nav-cta {
+      background: #3b82f6;
+      color: white !important;
+      padding: 0.6rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    .nav-cta:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+    }
+    /* Hero */
+    .hero {
+      padding: 10rem 0 6rem;
+      background: radial-gradient(circle at 70% 30%, #0b1120, #030712);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .hero-highlight {
+      background: linear-gradient(135deg, #60a5fa, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #b0c4de;
+      margin-bottom: 2rem;
+      max-width: 550px;
+    }
+    .hero-metrics {
+      display: flex;
+      gap: 2.5rem;
+      margin: 2.5rem 0;
+      flex-wrap: wrap;
+    }
+    .metric-item {
+      text-align: center;
+    }
+    .metric-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #3b82f6;
+    }
+    .metric-label {
+      font-size: 0.9rem;
+      color: #9ab0cc;
+      letter-spacing: 0.5px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: #3b82f6;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    }
+    .btn-primary:hover {
+      background: #2563eb;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+    }
+    .hero-image {
+      flex: 1;
+      text-align: center;
+      background: rgba(255,255,255,0.02);
+      border-radius: 30px;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+    /* Trust Bar */
+    .trust-bar {
+      background: #0f172a;
+      padding: 2rem 0;
+      border-top: 1px solid #1e293b;
+      border-bottom: 1px solid #1e293b;
+    }
+    .trust-bar .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+    .trust-item i {
+      color: #3b82f6;
+    }
+    /* Services */
+    .services {
+      padding: 5rem 0;
+      background: white;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #475569;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+      border: 1px solid #eef2f6;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 50px -12px #3b82f640;
+      border-color: #3b82f6;
+    }
+    .service-card i {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, #0f172a, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .service-card p {
+      color: #475569;
+      margin-bottom: 1.5rem;
+    }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tech-tags span {
+      background: #f1f5f9;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    /* How We Work */
+    .process {
+      padding: 5rem 0;
+      background: #f8fafc;
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .process-step {
+      text-align: center;
+    }
+    .process-step .step-number {
+      width: 60px;
+      height: 60px;
+      background: #3b82f6;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 0 auto 1.5rem;
+    }
+    .process-step h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+    .process-step p {
+      color: #475569;
+    }
+    /* Pricing Section (Updated) */
+    .pricing {
+      padding: 5rem 0;
+      background: white;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .pricing-card {
+      background: #f9fafc;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      border: 1px solid #eef2f6;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -10px #3b82f630;
+    }
+    .pricing-card.featured {
+      border: 2px solid #3b82f6;
+      background: white;
+      transform: scale(1.02);
+    }
+    .pricing-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+    .price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #3b82f6;
+      margin-bottom: 1.5rem;
+    }
+    .price small {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #64748b;
+    }
+    .pricing-card ul {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .pricing-card li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e2e8f0;
+      color: #334155;
+    }
+    .pricing-card li:last-child {
+      border-bottom: none;
+    }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: #3b82f6;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      border: 2px solid #3b82f6;
+      transition: all 0.3s;
+      width: 100%;
+      text-align: center;
+    }
+    .btn-secondary:hover {
+      background: #3b82f6;
+      color: white;
+    }
+    /* Featured Projects */
+    .projects {
+      padding: 5rem 0;
+      background: white;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    .project-card {
+      background: #f9fafc;
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid #eef2f6;
+      transition: all 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -10px #3b82f630;
+      border-color: #3b82f6;
+    }
+    .project-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .project-tags span {
+      background: #e2e8f0;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .project-card p {
+      color: #334155;
+      margin-bottom: 1.5rem;
+    }
+    .project-impact {
+      background: #dbeafe;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+      border-left: 4px solid #3b82f6;
+    }
+    .project-link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #3b82f6;
+      font-weight: 600;
+    }
+    .project-link i {
+      transition: transform 0.2s;
+    }
+    .project-link:hover i {
+      transform: translateX(5px);
+    }
+    /* Founder Section */
+    .founder {
+      padding: 5rem 0;
+      background: white;
+    }
+    .founder .container {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+    .founder-image {
+      flex: 1;
+      text-align: center;
+    }
+    .founder-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 30px;
+      box-shadow: 0 25px 50px -12px #0f172a;
+    }
+    .founder-content {
+      flex: 1;
+    }
+    .founder-content h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 1rem;
+    }
+    .founder-content h3 {
+      color: #3b82f6;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    .founder-content p {
+      color: #334155;
+      margin-bottom: 1rem;
+    }
+    .founder-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .founder-social a {
+      background: #f1f5f9;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0f172a;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+    }
+    .founder-social a:hover {
+      background: #3b82f6;
+      color: white;
+    }
+    /* Tools We Use */
+    .tools {
+      padding: 3rem 0;
+      background: #f8fafc;
+    }
+    .tools-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+    }
+    .tool-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: #1e293b;
+      background: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    }
+    .tool-item i {
+      font-size: 1.5rem;
+      color: #3b82f6;
+    }
+    /* Contact Section */
+    .contact {
+      padding: 5rem 0;
+      background: linear-gradient(145deg, #0b1120, #030712);
+      color: white;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contact-info h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .contact-details {
+      list-style: none;
+    }
+    .contact-details li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-details i {
+      width: 40px;
+      height: 40px;
+      background: #1e293b;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3b82f6;
+    }
+    .contact-form {
+      background: #1e293b;
+      padding: 2.5rem;
+      border-radius: 30px;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      color: white;
+      font-family: inherit;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+    .btn-submit {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 1rem;
+      width: 100%;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-submit:hover {
+      background: #2563eb;
+    }
+    /* Footer */
+    .footer {
+      background: #030712;
+      color: #94a3b8;
+      padding: 3rem 0;
+      border-top: 1px solid #1e293b;
+    }
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-logo img {
+      height: 40px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      color: #cbd5e1;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: #3b82f6;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .social-links a {
+      color: #94a3b8;
+      font-size: 1.3rem;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: #3b82f6;
+    }
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero .container, .founder .container, .contact-grid {
+        flex-direction: column;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(10,10,20,0.95);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 2rem;
+        gap: 1.5rem;
+        align-items: center;
+        backdrop-filter: blur(12px);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo-area">
+        <!-- Replace with your actual logo file -->
+        <img src="Untitled_design-removebg-preview.png" alt="MA TechHub" class="logo-img" loading="lazy">
+        <span class="logo-text">MA TechHub</span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#services" onclick="closeMenu()">Services</a>
+        <a href="#pricing" onclick="closeMenu()">Pricing</a>
+        <a href="#projects" onclick="closeMenu()">Projects</a>
+        <a href="#founder" onclick="closeMenu()">Founder</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+      </div>
+      <a href="#contact" class="nav-cta">Book a Strategy Call</a>
+      <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+        <h1>Clarity for Founders. <span class="hero-highlight">Confidence for Investors.</span></h1>
+        <p>We design financial intelligence systems that help scaling startups make smarter decisions.</p>
+        
+        <!-- Authentic metrics based on real work -->
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <div class="metric-number">5+</div>
+            <div class="metric-label">Data Solutions Delivered</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">3</div>
+            <div class="metric-label">Proprietary Dashboards</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">1M+</div>
+            <div class="metric-label">Data Points Processed</div>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn-primary">Book a 30-Min Strategy Call →</a>
+      </div>
+      <div class="hero-image" data-aos="fade-left">
+        <!-- Replace with a real dashboard screenshot or compressed image -->
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Financial Dashboard" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-item"><i class="fas fa-check-circle"></i> Boutique engagements for FinTech & SaaS</div>
+      <div class="trust-item"><i class="fas fa-globe"></i> Remote company serving global clients</div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Expertise, Engineered for Startups</h2>
+      <p class="section-subtitle" data-aos="fade-up">We build the financial infrastructure high‑growth companies need.</p>
+      <div class="services-grid">
+        <div class="service-card" data-aos="zoom-in">
+          <i class="fas fa-chart-pie"></i>
+          <h3>Startup KPI Dashboards</h3>
+          <p>Real‑time views of revenue, burn, runway, MRR, CAC, LTV—customized to your model.</p>
+          <div class="tech-tags"><span>Power BI</span><span>Tableau</span><span>Streamlit</span></div>
+        </div>
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fas fa-file-invoice"></i>
+          <h3>Investor Reporting Packages</h3>
+          <p>Beautiful, automated reports that impress VCs and angels—ready in minutes.</p>
+          <div class="tech-tags"><span>Automation</span><span>PDF/Web</span><span>Custom</span></div>
+        </div>
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+          <i class="fas fa-code"></i>
+          <h3>Custom Founder Tools</h3>
+          <p>Fundraising trackers, cap table management, unit economics calculators.</p>
+          <div class="tech-tags"><span>Python</span><span>React</span><span>Node.js</span></div>
+        </div>
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+          <i class="fas fa-brain"></i>
+          <h3>Metrics Strategy</h3>
+          <p>We define what to track before you build—so you measure what matters.</p>
+          <div class="tech-tags"><span>Workshop</span><span>Audit</span><span>Roadmap</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Work -->
+  <section class="process">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Our Process</h2>
+      <p class="section-subtitle" data-aos="fade-up">From chaos to clarity in four steps.</p>
+      <div class="process-grid">
+        <div class="process-step" data-aos="fade-right">
+          <div class="step-number">1</div>
+          <h3>Metrics Audit</h3>
+          <p>We review your current data, identify gaps, and define what matters most.</p>
+        </div>
+        <div class="process-step" data-aos="fade-up">
+          <div class="step-number">2</div>
+          <h3>KPI Architecture</h3>
+          <p>We design a custom measurement framework aligned with your business model.</p>
+        </div>
+        <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-number">3</div>
+          <h3>Dashboard Build</h3>
+          <p>We connect data sources and build your interactive dashboard (1-2 weeks).</p>
+        </div>
+        <div class="process-step" data-aos="fade-left">
+          <div class="step-number">4</div>
+          <h3>Ongoing Advisory</h3>
+          <p>We stay on call as your metrics evolve and new questions arise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing / Packages (Updated with monthly retainers) -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Predictable Pricing, Clear Value</h2>
+      <p class="section-subtitle" data-aos="fade-up">Fixed‑price engagements tailored to your startup’s stage. No surprises, just results.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card" data-aos="fade-right">
+          <h3>Foundation</h3>
+          <p class="price"><span>$3k–$5k</span> <small>fixed price</small></p>
+          <ul>
+            <li>✅ Core KPI dashboard (5–7 metrics)</li>
+            <li>✅ Connect up to 3 data sources</li>
+            <li>✅ 30‑day post‑launch support</li>
+          </ul>
+          <a href="#contact" class="btn-secondary">Start Here</a>
+        </div>
+        <div class="pricing-card featured" data-aos="fade-up">
+          <h3>Growth</h3>
+          <p class="price"><span>$6k–$10k</span> <small>fixed price</small></p>
+          <ul>
+            <li>✅ Everything in Foundation</li>
+            <li>✅ Advanced metrics (CAC, LTV, cohorts)</li>
+            <li>✅ Investor‑ready report template</li>
+            <li>✅ 90‑day support</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Most Popular</a>
+        </div>
+        <div class="pricing-card" data-aos="fade-left">
+          <h3>Scale</h3>
+          <p class="price"><span>$12k+</span> <small>custom quote</small></p>
+          <ul>
+            <li>✅ Everything in Growth</li>
+            <li>✅ Custom tool development</li>
+            <li>✅ Ongoing strategic advisory</li>
+            <li>✅ Priority support</li>
+          </ul>
+          <a href="#contact" class="btn-secondary">Let’s Talk</a>
+        </div>
+      </div>
+
+      <!-- Monthly Retainers (Recurring) -->
+      <div style="margin-top: 5rem;">
+        <h3 class="section-title" style="font-size: 2rem;" data-aos="fade-up">Monthly Retainers</h3>
+        <p class="section-subtitle" data-aos="fade-up">Keep your metrics fresh and your team aligned—ongoing support without the overhead.</p>
+        <div class="pricing-grid" style="margin-top: 2rem;">
+          <div class="pricing-card" data-aos="fade-right">
+            <h3>Essentials</h3>
+            <p class="price"><span>$1.5k–$2.5k</span> <small>/mo</small></p>
+            <ul>
+              <li>✅ Monthly dashboard updates</li>
+              <li>✅ Data source maintenance</li>
+              <li>✅ 5 hours ad‑hoc support</li>
+              <li>✅ Quarterly strategy call</li>
+            </ul>
+            <a href="#contact" class="btn-secondary">Get Essentials</a>
+          </div>
+          <div class="pricing-card featured" data-aos="fade-up">
+            <h3>Growth Retainer</h3>
+            <p class="price"><span>$3k–$5k</span> <small>/mo</small></p>
+            <ul>
+              <li>✅ Weekly dashboard refreshes</li>
+              <li>✅ 10 hours ad‑hoc support</li>
+              <li>✅ Monthly strategy call</li>
+              <li>✅ Investor update preparation</li>
+            </ul>
+            <a href="#contact" class="btn-primary">Most Popular</a>
+          </div>
+          <div class="pricing-card" data-aos="fade-left">
+            <h3>Strategic Partner</h3>
+            <p class="price"><span>$6k–$8k</span> <small>/mo</small></p>
+            <ul>
+              <li>✅ Unlimited support (within reason)</li>
+              <li>✅ Weekly leadership meetings</li>
+              <li>✅ Custom tool enhancements</li>
+              <li>✅ Board meeting preparation</li>
+            </ul>
+            <a href="#contact" class="btn-secondary">Become a Partner</a>
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align:center; margin-top: 3rem; color:#475569;">
+        All packages include a 30‑min discovery call. <a href="#contact" style="color:#3b82f6;">Book yours</a> to discuss which fits your startup.
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured Projects (Real Projects from PDF) -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+      <p class="section-subtitle" data-aos="fade-up">Real work. Real impact. These demonstrate our ability to build the same systems for FinTech & SaaS.</p>
+      <div class="projects-grid">
+        <!-- Project 1: Mining Production Efficiency Dashboard -->
+        <div class="project-card" data-aos="flip-left">
+          <h3>Mining Production Efficiency Dashboard</h3>
+          <div class="project-tags">
+            <span>Python</span><span>Streamlit</span><span>Predictive Analytics</span>
+          </div>
+          <p>Enterprise‑grade analytics tool tracking 15+ KPIs (OEE, MTBF, cost per ton). Simulated 1M+ production records.</p>
+          <div class="project-impact">
+            <i class="fas fa-chart-line"></i> <strong>Potential impact:</strong> 20-30% reduction in unplanned downtime.
+          </div>
+          <a href="https://tbzampbika8tfdb7ut3jdr.streamlit.app/" target="_blank" class="project-link">Live Demo <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <!-- Project 2: Sales Performance Dashboard (NEW) -->
+        <div class="project-card" data-aos="flip-left" data-aos-delay="100">
+          <h3>Multi-Region Sales Performance Dashboard</h3>
+          <div class="project-tags">
+            <span>Python</span><span>Streamlit</span><span>Plotly</span>
+          </div>
+          <p>Real-time analytics across 3 continents, 12 countries & 150K+ transactions (2022-2024). Features profit margin analysis, customer segmentation, and interactive visualizations with dark/light mode.</p>
+          <div class="project-impact">
+            <i class="fas fa-chart-simple"></i> <strong>Business impact:</strong> Enables data-driven decisions on regional performance and profitability.
+          </div>
+          <a href="https://sales-performance-dashboard-6tncpbij7armwaqhzdbzdr.streamlit.app/" target="_blank" class="project-link">Live Demo <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <!-- Project 3: Stock Market Dashboard & Forecasting -->
+        <div class="project-card" data-aos="flip-left" data-aos-delay="200">
+          <h3>Stock Market Dashboard & Forecasting</h3>
+          <div class="project-tags">
+            <span>Python</span><span>yfinance</span><span>Time Series</span>
+          </div>
+          <p>Real‑time stock data pipeline with 7-90 day price forecasts using ML. Interactive Plotly visualizations for tech equities.</p>
+          <div class="project-impact">
+            <i class="fas fa-chart-simple"></i> <strong>Deployed on Streamlit Cloud</strong>, used by individual traders.
+          </div>
+          <a href="https://3z45tljebjsrl4vbm67ji6.streamlit.app/" target="_blank" class="project-link">Live Demo <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 2rem;"><a href="https://github.com/Iceyma02" target="_blank" style="color:#3b82f6;">See more on GitHub →</a></p>
+    </div>
+  </section>
+
+  <!-- Founder Section (Authentic Bio) -->
+  <section id="founder" class="founder">
+    <div class="container">
+      <div class="founder-image" data-aos="fade-right">
+        <!-- Replace with actual photo of Anesu Manjengwa -->
+        <img src="Image.jpg" alt="Anesu Manjengwa, Founder" loading="lazy">
+      </div>
+      <div class="founder-content" data-aos="fade-left">
+        <h2>Meet Anesu Manjengwa</h2>
+        <h3>Founder & Lead Data Analyst</h3>
+        <p>Anesu Manjengwa is the founder of MA TechHub, where he leads the team in building financial intelligence systems that help startups scale with confidence.</p>
+        <p>Under his leadership, the company has delivered data solutions processing over 1 million data points across mining, sales, and stock forecasting—turning complex information into actionable insights that drive real results. His sales performance dashboard, for example, helps businesses analyze 150,000+ transactions across three continents.</p>
+        <p>Anesu’s vision is simple: equip founders with the tools and intelligence to grow smarter, faster, and with certainty.</p>
+        <div class="founder-social">
+          <a href="https://www.linkedin.com/in/anesu-manjengwa-684766247" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/Iceyma02" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/m.a_tech_hub" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools We Use -->
+  <section class="tools">
+    <div class="container">
+      <h3 style="text-align: center; margin-bottom: 2rem; color: #0f172a;">Trusted Tools</h3>
+      <div class="tools-grid">
+        <div class="tool-item"><i class="fab fa-python"></i> Python</div>
+        <div class="tool-item"><i class="fas fa-database"></i> SQL</div>
+        <div class="tool-item"><i class="fas fa-chart-bar"></i> Power BI</div>
+        <div class="tool-item"><i class="fas fa-chart-line"></i> Streamlit</div>
+        <div class="tool-item"><i class="fas fa-cloud"></i> AWS</div>
+        <div class="tool-item"><i class="fas fa-code"></i> Git</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title" style="color: white;" data-aos="fade-up">Ready to scale smarter?</h2>
+      <p class="section-subtitle" style="color: #b0c4de;" data-aos="fade-up">Book a free 30‑min strategy call. No pitch, just clarity.</p>
+      
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info" data-aos="fade-right">
+          <h3>Let's connect</h3>
+          <ul class="contact-details">
+            <li><i class="fas fa-envelope"></i> <a href="mailto:matechhubservices@gmail.com">matechhubservices@gmail.com</a></li>
+            <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/263789967365" target="_blank">+263 78 996 7365</a></li>
+            <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/company/ma-techhub/" target="_blank">MA TechHub LinkedIn</a></li>
+            <li><i class="fab fa-github"></i> <a href="https://github.com/Iceyma02" target="_blank">GitHub</a></li>
+            <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/m.a_tech_hub" target="_blank">@m.a_tech_hub</a></li>
+          </ul>
+          <p style="margin-top: 2rem; color: #b0c4de;"><i class="fas fa-map-pin"></i> Serving clients globally.</p>
+        </div>
+
+        <!-- Contact Form (Formspree) -->
+        <div class="contact-form" data-aos="fade-left">
+          <form action="https://formspree.io/f/your-endpoint" method="POST">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Email address" required>
+            </div>
+            <div class="form-group">
+              <input type="text" name="company" placeholder="Company name">
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Tell us about your startup or metrics challenge..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Book Strategy Call</button>
+          </form>
+          <p style="margin-top:1rem; font-size:0.8rem; color:#94a3b8;">We'll reply within 24h.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <img src="Untitled_design-removebg-preview.png" alt="MA TechHub" loading="lazy">
+        <span class="logo-text" style="color: white;">MA TechHub</span>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#projects">Projects</a>
+        <a href="#founder">Founder</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/ma-techhub/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/Iceyma02" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/m.a_tech_hub" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/263789967365" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 MA TechHub. All rights reserved. Founded 2024 in Harare, serving the world.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    function closeMenu() {
+      navLinks.classList.remove('active');
+    }
+
+    // Form submission alert (remove after setting real Formspree endpoint)
+    document.querySelector('form').addEventListener('submit', function(e) {
+      if (this.action.includes('your-endpoint')) {
+        e.preventDefault();
+        alert('Please replace the form action with your actual Formspree endpoint.');
+      }
+    });
+  </script>
+</body>
+</html>
+```
