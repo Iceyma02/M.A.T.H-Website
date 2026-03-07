@@ -61,8 +61,7 @@
     }
     .logo-img {
       height: 40px;
-      width: Auto;           /* Make it square */
-           /* Make it circular */
+      width: auto;           
     }
     .logo-text {
       font-size: 1.6rem;
@@ -106,7 +105,7 @@
     }
     /* Hero */
     .hero {
-      padding: 10rem 0 6rem;
+      padding: 10rem 0 4rem;
       background: radial-gradient(circle at 70% 30%, #0b1120, #030712);
       color: white;
       position: relative;
@@ -199,6 +198,35 @@
       max-width: 100%;
       border-radius: 20px;
       box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+    /* Service Badges - NEW SECTION for clarity */
+    .service-badges {
+      background: #0b1120;
+      padding: 2rem 0;
+      border-bottom: 1px solid #1e293b;
+    }
+    .badges-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+    .badge-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: white;
+    }
+    .badge-item i {
+      font-size: 2rem;
+      color: #3b82f6;
+    }
+    .badge-item span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #b0c4de;
     }
     /* Trust Bar */
     .trust-bar {
@@ -324,7 +352,7 @@
     .process-step p {
       color: #475569;
     }
-    /* Pricing Section (Updated) */
+    /* Pricing Section */
     .pricing {
       padding: 5rem 0;
       background: white;
@@ -730,15 +758,15 @@
         <div class="hero-metrics">
           <div class="metric-item">
             <div class="metric-number">5+</div>
-            <div class="metric-label">Data Solutions Delivered</div>
+            <div class="metric-label">Dashboard Projects</div>
           </div>
           <div class="metric-item">
             <div class="metric-number">3</div>
-            <div class="metric-label">Proprietary Dashboards</div>
+            <div class="metric-label">Live Demos</div>
           </div>
           <div class="metric-item">
             <div class="metric-number">1M+</div>
-            <div class="metric-label">Data Points Processed</div>
+            <div class="metric-label">Data Points</div>
           </div>
         </div>
 
@@ -750,6 +778,30 @@
       </div>
     </div>
   </section>
+
+  <!-- Service Badges - NEW: Instantly shows what we do -->
+  <div class="service-badges">
+    <div class="container">
+      <div class="badges-grid">
+        <div class="badge-item">
+          <i class="fas fa-chart-pie"></i>
+          <span>KPI Dashboards</span>
+        </div>
+        <div class="badge-item">
+          <i class="fas fa-file-invoice"></i>
+          <span>Investor Reports</span>
+        </div>
+        <div class="badge-item">
+          <i class="fas fa-code"></i>
+          <span>Custom Tools</span>
+        </div>
+        <div class="badge-item">
+          <i class="fas fa-brain"></i>
+          <span>Metrics Strategy</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Trust Bar -->
   <div class="trust-bar">
@@ -859,7 +911,7 @@
             <li>✅ Ongoing strategic advisory</li>
             <li>✅ Priority support</li>
           </ul>
-          <a href="#contact" class="btn-secondary">Let’s Talk</a>
+          <a href="#contact" class="btn-secondary">Let's Talk</a>
         </div>
       </div>
 
@@ -969,7 +1021,7 @@
         <h3>Founder & Lead Data Analyst</h3>
         <p>Anesu Manjengwa is the founder of MA TechHub, where he leads the team in building financial intelligence systems that help startups scale with confidence.</p>
         <p>Under his leadership, the company has delivered data solutions processing over 1 million data points across mining, sales, and stock forecasting—turning complex information into actionable insights that drive real results. His sales performance dashboard, for example, helps businesses analyze 150,000+ transactions across three continents.</p>
-        <p>Anesu’s vision is simple: equip founders with the tools and intelligence to grow smarter, faster, and with certainty.</p>
+        <p>Anesu's vision is simple: equip founders with the tools and intelligence to grow smarter, faster, and with certainty.</p>
         <div class="founder-social">
           <a href="https://www.linkedin.com/in/anesu-manjengwa-684766247" target="_blank"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://github.com/Iceyma02" target="_blank"><i class="fab fa-github"></i></a>
