@@ -199,7 +199,7 @@
       border-radius: 20px;
       box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
     }
-    /* Service Badges - NEW SECTION for clarity */
+    /* Service Badges */
     .service-badges {
       background: #0b1120;
       padding: 2rem 0;
@@ -489,24 +489,6 @@
     .project-link:hover i {
       transform: translateX(5px);
     }
-    <!-- Blog/Insights Section - Add after Featured Projects -->
-<section class="process" style="background: white;">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">Latest Insights</h2>
-    <p class="section-subtitle" data-aos="fade-up">Practical guides for data-driven founders</p>
-    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-      <div class="project-card" data-aos="fade-up" style="text-align: left;">
-        <span style="background: #3b82f6; color: white; padding: 0.3rem 1rem; border-radius: 30px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 1rem;">NEW</span>
-        <h3 style="font-size: 1.8rem;">The 7 SaaS KPIs Every Founder Must Track Before Their Series A</h3>
-        <p style="color: #475569;">A practical guide to the metrics investors will interrogate — and how to build a dashboard that makes them impossible to hide from.</p>
-        <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1.5rem;">
-          <a href="saas-kpis-series-a.html" class="btn-primary" style="padding: 0.8rem 2rem; font-size: 1rem;">Read Article →</a>
-          <span style="color: #64748b;">8 min read</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
     /* Founder Section */
     .founder {
       padding: 5rem 0;
@@ -797,7 +779,7 @@
     </div>
   </section>
 
-  <!-- Service Badges - NEW: Instantly shows what we do -->
+  <!-- Service Badges -->
   <div class="service-badges">
     <div class="container">
       <div class="badges-grid">
@@ -893,7 +875,7 @@
     </div>
   </section>
 
-  <!-- Pricing / Packages (Updated with monthly retainers) -->
+  <!-- Pricing / Packages -->
   <section id="pricing" class="pricing">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">Predictable Pricing, Clear Value</h2>
@@ -933,7 +915,7 @@
         </div>
       </div>
 
-      <!-- Monthly Retainers (Recurring) -->
+      <!-- Monthly Retainers -->
       <div style="margin-top: 5rem;">
         <h3 class="section-title" style="font-size: 2rem;" data-aos="fade-up">Monthly Retainers</h3>
         <p class="section-subtitle" data-aos="fade-up">Keep your metrics fresh and your team aligned—ongoing support without the overhead.</p>
@@ -980,7 +962,7 @@
     </div>
   </section>
 
-  <!-- Featured Projects (Real Projects from PDF) -->
+  <!-- Featured Projects -->
   <section id="projects" class="projects">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
@@ -998,7 +980,7 @@
           </div>
           <a href="https://tbzampbika8tfdb7ut3jdr.streamlit.app/" target="_blank" class="project-link">Live Demo <i class="fas fa-arrow-right"></i></a>
         </div>
-        <!-- Project 2: Sales Performance Dashboard (NEW) -->
+        <!-- Project 2: Sales Performance Dashboard -->
         <div class="project-card" data-aos="flip-left" data-aos-delay="100">
           <h3>Multi-Region Sales Performance Dashboard</h3>
           <div class="project-tags">
@@ -1027,7 +1009,26 @@
     </div>
   </section>
 
-  <!-- Founder Section (Authentic Bio) -->
+  <!-- NEW BLOG SECTION - FIXED: Moved outside of style tag -->
+  <section class="process" style="background: white;">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Latest Insights</h2>
+      <p class="section-subtitle" data-aos="fade-up">Practical guides for data-driven founders</p>
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <div class="project-card" data-aos="fade-up" style="text-align: left;">
+          <span style="background: #3b82f6; color: white; padding: 0.3rem 1rem; border-radius: 30px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 1rem;">NEW</span>
+          <h3 style="font-size: 1.8rem;">The 7 SaaS KPIs Every Founder Must Track Before Their Series A</h3>
+          <p style="color: #475569;">A practical guide to the metrics investors will interrogate — and how to build a dashboard that makes them impossible to hide from.</p>
+          <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1.5rem;">
+            <a href="saas-kpis-series-a.html" class="btn-primary" style="padding: 0.8rem 2rem; font-size: 1rem;">Read Article →</a>
+            <span style="color: #64748b;">8 min read</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder Section -->
   <section id="founder" class="founder">
     <div class="container">
       <div class="founder-image" data-aos="fade-right">
@@ -1084,7 +1085,7 @@
           <p style="margin-top: 2rem; color: #b0c4de;"><i class="fas fa-map-pin"></i> Serving clients globally.</p>
         </div>
 
-        <!-- Contact Form (Formspree) – UPDATED WITH YOUR ENDPOINT -->
+        <!-- Contact Form -->
         <div class="contact-form" data-aos="fade-left">
           <form action="https://formspree.io/f/meelrpqj" method="POST">
             <div class="form-group">
@@ -1150,9 +1151,6 @@
     function closeMenu() {
       navLinks.classList.remove('active');
     }
-
-    // Form submission alert – removed because endpoint is now real.
-    // (No need for alert anymore, the form will submit to Formspree.)
   </script>
 </body>
 </html>
