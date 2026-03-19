@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 7 SaaS KPIs Every Founder Must Track Before Series A | MA TechHub</title>
+  <meta name="description" content="A practical guide to the SaaS metrics investors will interrogate before your Series A — and how to build a dashboard that makes them impossible to hide from.">
+  <!-- Same favicon links as your main site -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Same fonts and styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    /* Copy ALL your existing CSS from index.html here */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e1e2f;
+      background-color: #ffffff;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* Navbar - exactly the same as your main site */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 20, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      z-index: 1000;
+      padding: 0.8rem 0;
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .logo-img {
+      height: 40px;
+      width: auto;           
+    }
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, #aaccff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      font-weight: 500;
+      color: #f0f4ff;
+    }
+    .nav-links a {
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: #3b82f6;
+    }
+    .nav-cta {
+      background: #3b82f6;
+      color: white !important;
+      padding: 0.6rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    .nav-cta:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+    }
+    
+    /* Blog Post Specific Styles */
+    .blog-post {
+      padding: 8rem 0 4rem;
+      background: white;
+    }
+    .blog-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+    }
+    .blog-header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .blog-meta {
+      color: #3b82f6;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .blog-meta span {
+      color: #64748b;
+      font-weight: 400;
+    }
+    .blog-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .blog-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 3rem 0 1rem;
+    }
+    .blog-content h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 2rem 0 1rem;
+    }
+    .blog-content p {
+      color: #334155;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    .blog-content ul, .blog-content ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+      color: #334155;
+    }
+    .blog-content li {
+      margin-bottom: 0.5rem;
+    }
+    .insight-box {
+      background: #f8fafc;
+      border-left: 4px solid #3b82f6;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      border-radius: 0 12px 12px 0;
+      font-style: italic;
+    }
+    .insight-box strong {
+      color: #0f172a;
+      font-style: normal;
+    }
+    .dashboard-tip {
+      background: #dbeafe;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      border: 1px solid #3b82f6;
+    }
+    .dashboard-tip h4 {
+      color: #1e40af;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .kpi-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .kpi-table th {
+      background: #0f172a;
+      color: white;
+      font-weight: 600;
+      padding: 1rem;
+      text-align: left;
+    }
+    .kpi-table td {
+      padding: 1rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .kpi-table tr:last-child td {
+      border-bottom: none;
+    }
+    .kpi-table tr:hover {
+      background: #f8fafc;
+    }
+    .benchmark-good {
+      color: #059669;
+      font-weight: 600;
+    }
+    .benchmark-bad {
+      color: #dc2626;
+      font-weight: 600;
+    }
+    .cta-blog {
+      background: linear-gradient(145deg, #0b1120, #030712);
+      color: white;
+      padding: 3rem;
+      border-radius: 24px;
+      text-align: center;
+      margin: 4rem 0;
+    }
+    .cta-blog h3 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .cta-blog p {
+      color: #b0c4de;
+      margin-bottom: 2rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: #3b82f6;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    }
+    .btn-primary:hover {
+      background: #2563eb;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+    }
+    .footer {
+      background: #030712;
+      color: #94a3b8;
+      padding: 3rem 0;
+      border-top: 1px solid #1e293b;
+    }
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      color: #cbd5e1;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: #3b82f6;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .social-links a {
+      color: #94a3b8;
+      font-size: 1.3rem;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: #3b82f6;
+    }
+    @media (max-width: 768px) {
+      .blog-header h1 {
+        font-size: 2rem;
+      }
+      .kpi-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar (exact copy from your index.html) -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo-area">
+        <img src="Untitled_design-removebg-preview.png" alt="MA TechHub" class="logo-img" loading="lazy">
+        <span class="logo-text">MA TechHub</span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#founder">Founder</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <a href="index.html#contact" class="nav-cta">Book a Strategy Call</a>
+      <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+
+  <!-- Blog Post Content -->
+  <section class="blog-post">
+    <div class="container">
+      <div class="blog-header" data-aos="fade-up">
+        <div class="blog-meta">FOUNDER INTELLIGENCE SERIES <span>· 8 min read · Updated 2026</span></div>
+        <h1>The 7 SaaS KPIs Every Founder Must Track Before Their Series A</h1>
+        <p style="color: #475569; font-size: 1.2rem;">A practical guide to the metrics investors will interrogate — and how to build a dashboard that makes them impossible to hide from.</p>
+      </div>
+
+      <div class="blog-content" data-aos="fade-up">
+        <div class="insight-box">
+          <strong>The honest truth most founders don't want to hear:</strong> Most early-stage SaaS founders are flying blind. They check Stripe daily, glance at their user count, and call that "data-driven." Then they walk into a Series A meeting and a VC asks: "What's your net revenue retention trend over the last 6 months?" Silence. That silence is expensive.
+        </div>
+
+        <p>This guide covers the 7 KPIs that investors will probe in every serious fundraising conversation — what they mean, how to calculate them, what healthy looks like, and most importantly, how to build a live dashboard that tracks them automatically so you're never caught off-guard.</p>
+        
+        <p>You don't need a data team. You don't need a six-figure BI platform. You need the right metrics, tracked consistently, visualized clearly.</p>
+
+        <h2>Why most SaaS founders track the wrong things</h2>
+        <p>The mistake isn't ignoring data — it's tracking vanity metrics that feel good but tell investors nothing about the health of the business. Total signups, page views, app downloads — these numbers are easy to grow and meaningless in isolation.</p>
+
+        <div class="insight-box">
+          <strong>The one question your metrics must answer:</strong> "If we give you $2 million, do you have enough evidence that each dollar spent acquiring a customer will return more than a dollar in lifetime value — and do you have the operational efficiency to prove it will keep compounding?"
+        </div>
+
+        <p>The 7 KPIs below are the specific answers to that question. Master these and you walk into any investor room ready.</p>
+
+        <h2>The 7 KPIs at a glance</h2>
+        
+        <table class="kpi-table">
+          <thead>
+            <tr>
+              <th>KPI</th>
+              <th>What it measures</th>
+              <th>Healthy benchmark</th>
+              <th>Red flag</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>MRR</strong></td>
+              <td>Monthly recurring revenue</td>
+              <td class="benchmark-good">>15% MoM growth</td>
+              <td class="benchmark-bad">Flat or declining 2+ months</td>
+            </tr>
+            <tr>
+              <td><strong>Churn Rate</strong></td>
+              <td>% customers lost per month</td>
+              <td class="benchmark-good"><2% monthly</td>
+              <td class="benchmark-bad">>5% monthly</td>
+            </tr>
+            <tr>
+              <td><strong>CAC</strong></td>
+              <td>Cost to acquire one customer</td>
+              <td>Varies by channel</td>
+              <td class="benchmark-bad">Payback period >18 months</td>
+            </tr>
+            <tr>
+              <td><strong>LTV</strong></td>
+              <td>Total revenue per customer</td>
+              <td class="benchmark-good">LTV:CAC ratio >3:1</td>
+              <td class="benchmark-bad">Ratio below 1:1</td>
+            </tr>
+            <tr>
+              <td><strong>NRR</strong></td>
+              <td>Revenue retained + expanded</td>
+              <td class="benchmark-good">>100% (net expansion)</td>
+              <td class="benchmark-bad"><80%</td>
+            </tr>
+            <tr>
+              <td><strong>Burn Rate</strong></td>
+              <td>Cash spent per month</td>
+              <td class="benchmark-good">12+ months runway</td>
+              <td class="benchmark-bad"><6 months runway</td>
+            </tr>
+            <tr>
+              <td><strong>Activation Rate</strong></td>
+              <td>% users who reach core value</td>
+              <td class="benchmark-good">>60% within 7 days</td>
+              <td class="benchmark-bad"><30% within 7 days</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>1. Monthly Recurring Revenue (MRR)</h2>
+        <p>MRR is the heartbeat of your SaaS business. It is the single most important top-line number because unlike one-time revenue, it compounds. A business growing MRR at 15% month-over-month doubles roughly every 5 months.</p>
+        
+        <h3>How to calculate it</h3>
+        <p><strong>MRR =</strong> Number of paying customers × Average Revenue Per Account (ARPA) per month</p>
+        <p>If you have 50 customers paying $99/month and 10 paying $299/month: MRR = (50 × $99) + (10 × $299) = $4,950 + $2,990 = $7,940</p>
+        
+        <h3>What investors look for</h3>
+        <ul>
+          <li>Consistent month-over-month growth rate — not the absolute number</li>
+          <li>The composition of MRR: new MRR vs expansion MRR vs churned MRR</li>
+          <li>Seasonality patterns and how you explain them</li>
+        </ul>
+
+        <div class="dashboard-tip">
+          <h4>📊 Dashboard tip from MA TechHub</h4>
+          <p>Track New MRR, Expansion MRR, Churned MRR, and Net MRR separately in your dashboard. A waterfall chart showing these components makes your growth story visually compelling in any investor deck.</p>
+        </div>
+
+        <h2>2. Customer Churn Rate</h2>
+        <p>Churn is the silent killer of SaaS businesses. A 5% monthly churn rate means you're replacing your entire customer base every 20 months. You can grow all you want — if the bucket is leaking, you're running in place.</p>
+        
+        <h3>How to calculate it</h3>
+        <p><strong>Monthly Churn Rate =</strong> (Customers lost in month ÷ Customers at start of month) × 100</p>
+        <p>If you started July with 200 customers and lost 8: Churn = (8 ÷ 200) × 100 = 4%</p>
+        
+        <h3>Benchmarks by stage</h3>
+        <ul>
+          <li><strong>Early stage (<$1M ARR):</strong> up to 5–7% monthly is survivable if you're learning fast</li>
+          <li><strong>Growth stage ($1M–$10M ARR):</strong> target below 2% monthly</li>
+          <li><strong>Series A and beyond:</strong> investors expect sub-1.5% monthly or you need a compelling explanation</li>
+        </ul>
+
+        <h2>3. Customer Acquisition Cost (CAC)</h2>
+        <p>CAC tells you the price tag of one new customer. On its own, the number is meaningless. In relation to LTV, it becomes the most important ratio in your business model.</p>
+        
+        <h3>How to calculate it</h3>
+        <p><strong>CAC =</strong> Total Sales & Marketing spend in a period ÷ Number of new customers acquired in that period</p>
+        <p>If you spent $10,000 on marketing in Q1 and acquired 40 customers: CAC = $10,000 ÷ 40 = $250</p>
+        
+        <h3>The number that matters most: CAC Payback Period</h3>
+        <p><strong>CAC Payback Period =</strong> CAC ÷ (ARPA × Gross Margin %)</p>
+        <p>A payback period under 12 months is strong. Under 6 months is exceptional. Over 18 months will raise eyebrows at any serious Series A pitch.</p>
+
+        <h2>4. Customer Lifetime Value (LTV)</h2>
+        <p>LTV answers: "On average, how much revenue will one customer generate before they leave?" Combined with CAC, it defines whether your business model is fundamentally sound.</p>
+        
+        <h3>How to calculate it</h3>
+        <p><strong>LTV =</strong> ARPA ÷ Monthly Churn Rate</p>
+        <p>If ARPA = $150/month and monthly churn = 2%: LTV = $150 ÷ 0.02 = $7,500</p>
+        
+        <h3>The LTV:CAC ratio</h3>
+        <p>This single ratio summarises your entire unit economics story:</p>
+        <ul>
+          <li><span class="benchmark-bad">Below 1:1</span> — you are destroying value with every customer you acquire</li>
+          <li><span style="color: #b45309;">1:1 to 3:1</span> — marginal; you need to improve before raising</li>
+          <li><span class="benchmark-good">3:1</span> — the gold standard investors want to see</li>
+          <li><span class="benchmark-good">Above 5:1</span> — excellent, but may signal you're underinvesting in growth</li>
+        </ul>
+
+        <h2>5. Net Revenue Retention (NRR)</h2>
+        <p>NRR is arguably the most powerful metric in this list — and the one most early-stage founders have never even heard of. It measures whether the revenue you already have is growing or shrinking, independent of new customer acquisition.</p>
+        
+        <h3>How to calculate it</h3>
+        <p><strong>NRR =</strong> [(Starting MRR + Expansion MRR − Churned MRR − Contraction MRR) ÷ Starting MRR] × 100</p>
+        <p>An NRR above 100% means your existing customers are spending more over time — your business grows even if you acquire zero new customers. This is the definition of a defensible SaaS business.</p>
+        
+        <h3>Why investors obsess over NRR</h3>
+        <ul>
+          <li>NRR > 120% is considered best-in-class (Slack, Snowflake territory)</li>
+          <li>NRR > 100% means your growth is compounding without needing to constantly refill a leaky bucket</li>
+          <li>NRR < 80% is a hard flag in any Series A conversation</li>
+        </ul>
+
+        <div class="dashboard-tip">
+          <h4>📊 Dashboard tip from MA TechHub</h4>
+          <p>Build a cohort retention table in your dashboard — it shows NRR broken down by the month each customer joined. This gives investors confidence that your retention is consistent, not a one-time spike.</p>
+        </div>
+
+        <h2>6. Burn Rate & Runway</h2>
+        <p>Your burn rate is how much cash you consume per month. Your runway is how many months until you hit zero. These two numbers determine your timeline for everything: when to hire, when to pivot, when to raise.</p>
+        
+        <h3>How to calculate them</h3>
+        <p><strong>Gross Burn Rate =</strong> Total monthly operating expenses</p>
+        <p><strong>Net Burn Rate =</strong> Monthly expenses − Monthly revenue</p>
+        <p><strong>Runway =</strong> Cash in bank ÷ Net Burn Rate</p>
+        
+        <h3>What healthy looks like</h3>
+        <ul>
+          <li>12 months of runway minimum before starting a Series A process</li>
+          <li>18–24 months is ideal — gives you negotiating leverage</li>
+          <li>Below 6 months: you're raising from a position of desperation, not strength</li>
+        </ul>
+
+        <h2>7. Activation Rate</h2>
+        <p>The most undertracked metric on this list. Activation rate measures the percentage of new users who reach your product's core value moment within a defined timeframe — usually 7 or 14 days.</p>
+        <p>This matters because an unactivated user is not really a user. They signed up and left before experiencing what makes your product valuable. High signups with low activation is a product problem masquerading as a growth problem.</p>
+        
+        <h3>How to define and calculate it</h3>
+        <p>First, define your activation event — the specific action that signals a user has experienced core value. Examples:</p>
+        <ul>
+          <li>A project management tool: user creates and assigns their first task</li>
+          <li>An analytics platform: user connects a data source and views their first dashboard</li>
+          <li>A fintech app: user completes their first transaction</li>
+        </ul>
+        <p><strong>Activation Rate =</strong> (Users who completed activation event within 7 days ÷ Total new signups) × 100</p>
+        <p>Target: above 60% within 7 days. Below 30% and your onboarding needs urgent attention before you invest more in acquisition.</p>
+
+        <h2>How to track all 7 in one dashboard</h2>
+        <p>Tracking these KPIs manually in spreadsheets is how founders end up with outdated numbers and no confidence in their own data. The right solution is a live dashboard that pulls your data automatically and updates in real time.</p>
+        
+        <h3>What a Series A-ready KPI dashboard looks like</h3>
+        <ul>
+          <li>A single-screen summary showing current MRR, churn, LTV:CAC ratio, NRR, burn rate, and runway</li>
+          <li>Month-over-month trend lines for each metric — not just point-in-time numbers</li>
+          <li>A cohort table showing retention curves for each signup month</li>
+          <li>A burn waterfall showing spending by category against revenue growth</li>
+          <li>Automated investor report that can be exported in one click</li>
+        </ul>
+
+        <div class="cta-blog">
+          <h3>Ready to build your investor-ready dashboard?</h3>
+          <p>We design custom KPI dashboards for FinTech and SaaS founders — connected to your actual data sources (Stripe, PostgreSQL, Google Sheets, HubSpot), built in Power BI, Tableau, or Streamlit, and delivered in 1–2 weeks. Our Foundation package starts at $800.</p>
+          <a href="index.html#contact" class="btn-primary">Book a free 30-minute strategy call →</a>
+        </div>
+
+        <h2>Your Series A metrics checklist</h2>
+        <p>Before your next investor conversation, make sure you can answer every one of these questions without hesitation:</p>
+        <ol>
+          <li>What is our current MRR and what was it 3, 6, and 12 months ago?</li>
+          <li>What is our monthly customer churn rate and what is driving it?</li>
+          <li>What is our blended CAC and our CAC payback period by channel?</li>
+          <li>What is our LTV:CAC ratio and how has it trended over the last 6 months?</li>
+          <li>What is our Net Revenue Retention and what does our cohort table show?</li>
+          <li>What is our current net burn rate and how many months of runway do we have?</li>
+          <li>What is our activation rate and what is our defined core value moment?</li>
+        </ol>
+
+        <h2>The bottom line</h2>
+        <p>Investors don't fund potential — they fund evidence. These 7 KPIs are the evidence they need. Founders who walk into Series A conversations with a live dashboard showing all 7 metrics trending positively close rounds faster, at better valuations, with less dilution.</p>
+        <p>The good news: building this visibility is not expensive or technically complex. It requires the right data infrastructure, the right KPI definitions, and the right visualization. That is what MA TechHub does.</p>
+
+        <hr style="margin: 3rem 0; border: 1px solid #e2e8f0;">
+
+        <p><strong>About the author</strong><br>
+        Anesu Manjengwa is the founder of MA TechHub, a boutique financial analytics firm building KPI dashboards and investor reporting systems for FinTech and SaaS startups. Based in Harare, Zimbabwe, serving clients globally.</p>
+        <p style="color: #64748b; font-size: 0.9rem;"><em>Tags: SaaS metrics, startup KPIs, Series A, MRR, churn rate, CAC, LTV, NRR, burn rate, startup dashboard, data analytics, FinTech</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (exact copy from your index.html) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <img src="Untitled_design-removebg-preview.png" alt="MA TechHub" loading="lazy">
+        <span class="logo-text" style="color: white;">MA TechHub</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#founder">Founder</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/ma-techhub/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/Iceyma02" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/m.a_tech_hub" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/263789967365" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 MA TechHub. All rights reserved. Founded 2024 in Harare, serving the world.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    function closeMenu() {
+      navLinks.classList.remove('active');
+    }
+  </script>
+</body>
+</html>
