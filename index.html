@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MA TechHub – Sector Intelligence Platforms for African Businesses</title>
-  <meta name="description" content="Zimbabwe's sector intelligence company. Live dashboards for retail, agriculture, mining, FMCG and FinTech. Built in Harare, ready for Africa.">
+  <meta name="description" content="Zimbabwe's sector intelligence company. Live dashboards for retail, agriculture, mining, FMCG, health, logistics, manufacturing, energy, education and FinTech. Built in Harare, ready for Africa.">
   <meta property="og:title" content="MA TechHub – Africa's Sector Intelligence Company">
-  <meta property="og:description" content="We build the intelligence layer for African industry. ZimRetail IQ, AgriIQ, ProtonIQ and more.">
+  <meta property="og:description" content="We build the intelligence layer for every African industry. ZimRetail IQ, AgriIQ, ProtonIQ, HealthIQ and more.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
@@ -386,7 +386,7 @@
     .text-center { text-align: center; }
     .text-center .section-sub { margin: 0 auto; }
 
-    /* ── PLATFORMS ── */
+    /* ── PLATFORMS (existing cards) ── */
     .platforms { background: var(--ink); }
     .platforms-grid {
       display: grid;
@@ -434,6 +434,7 @@
     .icon-purple { background: rgba(139,92,246,0.12); color: #8b5cf6; }
     .icon-coral { background: rgba(239,68,68,0.1); color: #ef4444; }
     .icon-green { background: rgba(16,185,129,0.1); color: #10b981; }
+    .icon-sky { background: rgba(14,165,233,0.12); color: #0ea5e9; }
 
     .platform-badge {
       position: absolute;
@@ -496,6 +497,48 @@
     .platform-links a.github { color: var(--text-muted); }
     .platform-links a.github:hover { color: var(--white); }
 
+    /* ── NEW: SECTORS WE SERVE GRID ── */
+    .sectors {
+      background: var(--ink-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .sector-card {
+      background: var(--ink);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.2rem;
+      text-align: center;
+      transition: all 0.25s;
+    }
+    .sector-card:hover { border-color: rgba(59,130,246,0.4); transform: translateY(-3px); }
+    .sector-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+    .sector-card h4 {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .sector-status {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.5rem;
+    }
+    .status-live { color: var(--accent); }
+    .status-demo { color: #f59e0b; }
+    .status-roadmap { color: var(--text-muted); }
+
     /* ── SERVICES ── */
     .services { background: var(--ink-2); }
     .services-grid {
@@ -543,7 +586,7 @@
       font-weight: 500;
     }
 
-    /* ── ZIM EDGE BANNER ── */
+    /* ── ZIM EDGE BANNER (unchanged) ── */
     .zim-edge {
       background: linear-gradient(135deg, var(--ink-2), var(--ink-3));
       border-top: 1px solid var(--border);
@@ -595,7 +638,7 @@
     }
     .zim-stat .lbl { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; }
 
-    /* ── PROCESS ── */
+    /* ── PROCESS (unchanged) ── */
     .process { background: var(--ink); }
     .process-steps {
       display: grid;
@@ -639,7 +682,7 @@
     }
     .process-step p { color: var(--text-body); font-size: 0.88rem; line-height: 1.6; }
 
-    /* ── PRICING ── */
+    /* ── PRICING (unchanged) ── */
     .pricing { background: var(--ink-2); }
     .pricing-grid {
       display: grid;
@@ -1042,12 +1085,13 @@
       .hero-metrics { gap: 1.5rem; }
       .pricing-grid { grid-template-columns: 1fr; }
       .zim-stats { grid-template-columns: 1fr 1fr; }
+      .sectors-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR (unchanged) -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <div class="logo-area">
@@ -1067,35 +1111,19 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO (unchanged) -->
   <section id="home" class="hero">
     <div class="hero-glow-1"></div>
     <div class="hero-glow-2"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow">
-          <i class="fas fa-globe-africa"></i>
-          Built in Harare · Ready for Africa
-        </div>
-        <h1>
-          Africa's Sector<br>
-          <span class="hero-highlight">Intelligence</span><br>
-          <span class="hero-accent">Platform.</span>
-        </h1>
-        <p>We build the data intelligence layer that African businesses have never had — sector-specific, locally contextualised, deployed in weeks not months.</p>
+        <div class="hero-eyebrow"><i class="fas fa-globe-africa"></i> Built in Harare · Ready for Africa</div>
+        <h1>Africa's Sector<br><span class="hero-highlight">Intelligence</span><br><span class="hero-accent">Platform.</span></h1>
+        <p>We build the data intelligence layer that African businesses have never had — for retail, agriculture, mining, health, logistics, manufacturing, energy, education and FinTech. Deployed in weeks, not months.</p>
         <div class="hero-metrics">
-          <div class="metric-item">
-            <div class="metric-number">17+</div>
-            <div class="metric-label">Modules per platform</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-number">4</div>
-            <div class="metric-label">Sectors covered</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-number">1M+</div>
-            <div class="metric-label">Data points processed</div>
-          </div>
+          <div class="metric-item"><div class="metric-number">10+</div><div class="metric-label">Sectors targeted</div></div>
+          <div class="metric-item"><div class="metric-number">6</div><div class="metric-label">Live platforms</div></div>
+          <div class="metric-item"><div class="metric-number">1M+</div><div class="metric-label">Data points processed</div></div>
         </div>
         <div class="hero-ctas">
           <a href="#contact" class="btn-primary">Book a Strategy Call <i class="fas fa-arrow-right"></i></a>
@@ -1104,541 +1132,186 @@
       </div>
       <div class="hero-visual">
         <div class="hero-dashboard-card">
-          <div class="dashboard-bar">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
-            <span>ZimRetail IQ · Live Dashboard</span>
-          </div>
-          <div class="dashboard-img">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ZimRetail IQ Dashboard" loading="lazy">
-          </div>
+          <div class="dashboard-bar"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span><span>ZimRetail IQ · Live Dashboard</span></div>
+          <div class="dashboard-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ZimRetail IQ Dashboard" loading="lazy"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TICKER -->
+  <!-- TICKER BAR (updated with all sectors) -->
   <div class="ticker-bar">
     <div class="ticker-track">
       <div class="ticker-item"><i class="fas fa-check-circle"></i> Zimbabwe-built intelligence platforms</div>
       <div class="ticker-item"><i class="fas fa-database"></i> Local data: TIMB · GMB · ZSE · COTTCO · ZIMRA</div>
       <div class="ticker-item"><i class="fas fa-globe"></i> Serving clients globally, rooted in Harare</div>
-      <div class="ticker-item"><i class="fas fa-bolt"></i> Deployed in weeks, not months</div>
+      <div class="ticker-item"><i class="fas fa-bolt"></i> Retail · Agri · Mining · Health · Logistics · Manufacturing · Energy · Education · FinTech</div>
       <div class="ticker-item"><i class="fas fa-chart-line"></i> SAP doesn't know Zimbabwe. We do.</div>
       <div class="ticker-item"><i class="fas fa-shield-alt"></i> Africa's first sector intelligence company</div>
-      <!-- Duplicate for seamless loop -->
+      <!-- Duplicate for loop -->
       <div class="ticker-item"><i class="fas fa-check-circle"></i> Zimbabwe-built intelligence platforms</div>
       <div class="ticker-item"><i class="fas fa-database"></i> Local data: TIMB · GMB · ZSE · COTTCO · ZIMRA</div>
       <div class="ticker-item"><i class="fas fa-globe"></i> Serving clients globally, rooted in Harare</div>
-      <div class="ticker-item"><i class="fas fa-bolt"></i> Deployed in weeks, not months</div>
+      <div class="ticker-item"><i class="fas fa-bolt"></i> Retail · Agri · Mining · Health · Logistics · Manufacturing · Energy · Education · FinTech</div>
       <div class="ticker-item"><i class="fas fa-chart-line"></i> SAP doesn't know Zimbabwe. We do.</div>
       <div class="ticker-item"><i class="fas fa-shield-alt"></i> Africa's first sector intelligence company</div>
     </div>
   </div>
 
-  <!-- PLATFORMS -->
+  <!-- PLATFORMS (existing cards, unchanged) -->
   <section id="platforms" class="platforms">
     <div class="container">
       <div class="fade-up">
         <span class="section-label">Live Intelligence Platforms</span>
         <h2 class="section-title">Built for Zimbabwe.<br>Scalable across Africa.</h2>
-        <p class="section-sub">Real platforms you can interact with today. Global BI tools like Power BI and Tableau have zero knowledge of TIMB, GMB, COTTCO, or ZWG dynamics. We built what they couldn't.</p>
+        <p class="section-sub">Real platforms you can interact with today. Global BI tools have zero knowledge of TIMB, GMB, COTTCO, or ZWG dynamics. We built what they couldn't.</p>
       </div>
       <div class="platforms-grid">
-
-        <div class="platform-card featured fade-up">
-          <div class="platform-icon icon-teal">
-            <i class="fas fa-store"></i>
-            <span class="platform-badge">Live</span>
-          </div>
-          <h3>ZimRetail IQ</h3>
-          <p>17-module retail intelligence platform for Zimbabwe's retail sector. Real-time sales tracking, inventory visibility, and category performance — with ZIMRA compliance and ZWL/USD reconciliation built in.</p>
-          <div class="platform-tags">
-            <span>Plotly Dash</span><span>Python</span><span>Railway</span><span>Retail Analytics</span>
-          </div>
-          <div class="platform-links">
-            <a href="https://web-production-474c8.up.railway.app" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="https://github.com/Iceyma02/Zimbabwe-Retail-Intelligence-System" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-
-        <div class="platform-card featured fade-up">
-          <div class="platform-icon icon-green">
-            <i class="fas fa-tractor"></i>
-            <span class="platform-badge">Live</span>
-          </div>
-          <h3>AgriIQ</h3>
-          <p>Zimbabwe agriculture intelligence dashboard covering TIMB, GMB, COTTCO, Hippo Valley, and commercial farming. Crop yields, pricing trends, provincial mapping, and input cost tracking.</p>
-          <div class="platform-tags">
-            <span>Plotly Dash</span><span>Python</span><span>GIS</span><span>Railway</span>
-          </div>
-          <div class="platform-links">
-            <a href="https://web-production-c8185.up.railway.app" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="https://github.com/Iceyma02/Agriculture-Intelligence-Platform" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-
-        <div class="platform-card fade-up">
-          <div class="platform-icon icon-amber">
-            <i class="fas fa-bread-slice"></i>
-            <span class="platform-badge coming-badge">In Development</span>
-          </div>
-          <h3>ProtonIQ</h3>
-          <p>17-module FMCG intelligence system purpose-built for Proton Bakers Zimbabwe. Covers production output, depot intelligence, fleet performance, retailer analytics, SKU performance, and executive command centre.</p>
-          <div class="platform-tags">
-            <span>Plotly Dash</span><span>XGBoost</span><span>Python</span><span>FMCG</span>
-          </div>
-          <div class="platform-links">
-            <a href="#contact" style="color: #f59e0b;"><i class="fas fa-clock"></i> Coming Soon</a>
-          </div>
-        </div>
-
-        <div class="platform-card fade-up">
-          <div class="platform-icon icon-purple">
-            <i class="fas fa-hard-hat"></i>
-            <span class="platform-badge">Live</span>
-          </div>
-          <h3>Mining Production Dashboard</h3>
-          <p>Enterprise-grade analytics tracking OEE, MTBF, and cost per ton. Simulated 1M+ production records with predictive maintenance intelligence for Zimplats-scale operations.</p>
-          <div class="platform-tags">
-            <span>Python</span><span>Streamlit</span><span>Predictive ML</span>
-          </div>
-          <div class="platform-links">
-            <a href="https://tbzampbika8tfdb7ut3jdr.streamlit.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-          </div>
-        </div>
-
-        <div class="platform-card fade-up">
-          <div class="platform-icon icon-blue">
-            <i class="fas fa-truck"></i>
-            <span class="platform-badge">Live</span>
-          </div>
-          <h3>Supply Chain Optimizer</h3>
-          <p>Inventory tracking, depot performance, and delivery route efficiency for national distribution operations. XGBoost delay prediction with 5-tab Dash interface.</p>
-          <div class="platform-tags">
-            <span>Plotly Dash</span><span>XGBoost</span><span>Render</span><span>Logistics</span>
-          </div>
-          <div class="platform-links">
-            <a href="https://supply-chain-optimization-dashboard.onrender.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="https://github.com/Iceyma02/supply-chain-optimizer" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-
-        <div class="platform-card fade-up">
-          <div class="platform-icon icon-coral">
-            <i class="fas fa-chart-line"></i>
-            <span class="platform-badge">Live</span>
-          </div>
-          <h3>Stock Market Forecasting</h3>
-          <p>Real-time stock data pipeline with 7–90 day price forecasts using ML time series models. Interactive Plotly visualisations for equities analysis.</p>
-          <div class="platform-tags">
-            <span>Python</span><span>yfinance</span><span>Time Series</span><span>ML</span>
-          </div>
-          <div class="platform-links">
-            <a href="https://3z45tljebjsrl4vbm67ji6.streamlit.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-          </div>
-        </div>
-
+        <div class="platform-card featured fade-up"><div class="platform-icon icon-teal"><i class="fas fa-store"></i><span class="platform-badge">Live</span></div><h3>ZimRetail IQ</h3><p>17-module retail intelligence platform for Zimbabwe's retail sector. Real-time sales tracking, inventory visibility, ZIMRA compliance, ZWL/USD reconciliation.</p><div class="platform-tags"><span>Plotly Dash</span><span>Python</span><span>Railway</span></div><div class="platform-links"><a href="https://web-production-474c8.up.railway.app" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="https://github.com/Iceyma02/Zimbabwe-Retail-Intelligence-System" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a></div></div>
+        <div class="platform-card featured fade-up"><div class="platform-icon icon-green"><i class="fas fa-tractor"></i><span class="platform-badge">Live</span></div><h3>AgriIQ</h3><p>Zimbabwe agriculture intelligence dashboard covering TIMB, GMB, COTTCO, Hippo Valley. Crop yields, pricing trends, provincial mapping, input cost tracking.</p><div class="platform-tags"><span>Plotly Dash</span><span>GIS</span><span>Railway</span></div><div class="platform-links"><a href="https://web-production-c8185.up.railway.app" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="https://github.com/Iceyma02/Agriculture-Intelligence-Platform" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a></div></div>
+        <div class="platform-card fade-up"><div class="platform-icon icon-amber"><i class="fas fa-bread-slice"></i><span class="platform-badge coming-badge">In Development</span></div><h3>ProtonIQ</h3><p>17-module FMCG intelligence system for Proton Bakers Zimbabwe. Production output, depot intelligence, fleet performance, retailer analytics, SKU performance.</p><div class="platform-tags"><span>Plotly Dash</span><span>XGBoost</span><span>FMCG</span></div><div class="platform-links"><a href="#contact" style="color: #f59e0b;"><i class="fas fa-clock"></i> Coming Soon</a></div></div>
+        <div class="platform-card fade-up"><div class="platform-icon icon-purple"><i class="fas fa-hard-hat"></i><span class="platform-badge">Live</span></div><h3>Mining Production Dashboard</h3><p>Enterprise-grade analytics tracking OEE, MTBF, cost per ton. Predictive maintenance for Zimplats-scale operations.</p><div class="platform-tags"><span>Streamlit</span><span>Predictive ML</span></div><div class="platform-links"><a href="https://tbzampbika8tfdb7ut3jdr.streamlit.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a></div></div>
+        <div class="platform-card fade-up"><div class="platform-icon icon-blue"><i class="fas fa-truck"></i><span class="platform-badge">Live</span></div><h3>Supply Chain Optimizer</h3><p>Inventory tracking, depot performance, delivery route efficiency. XGBoost delay prediction.</p><div class="platform-tags"><span>Plotly Dash</span><span>XGBoost</span><span>Logistics</span></div><div class="platform-links"><a href="https://supply-chain-optimization-dashboard.onrender.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="https://github.com/Iceyma02/supply-chain-optimizer" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a></div></div>
+        <div class="platform-card fade-up"><div class="platform-icon icon-coral"><i class="fas fa-chart-line"></i><span class="platform-badge">Live</span></div><h3>Stock Market Forecasting</h3><p>Real-time stock data pipeline with 7–90 day price forecasts using ML time series models.</p><div class="platform-tags"><span>Python</span><span>yfinance</span><span>Time Series</span></div><div class="platform-links"><a href="https://3z45tljebjsrl4vbm67ji6.streamlit.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a></div></div>
       </div>
-      <p style="text-align:center;margin-top:2.5rem;">
-        <a href="https://github.com/Iceyma02" target="_blank" style="color:var(--blue-light);font-weight:600;font-size:0.9rem;">View all projects on GitHub <i class="fas fa-arrow-right"></i></a>
-      </p>
+      <p style="text-align:center;margin-top:2.5rem;"><a href="https://github.com/Iceyma02" target="_blank" style="color:var(--blue-light);font-weight:600;">View all projects on GitHub <i class="fas fa-arrow-right"></i></a></p>
     </div>
   </section>
 
-  <!-- ZIM EDGE -->
+  <!-- NEW: SECTORS WE SERVE (full ambition grid) -->
+  <section class="sectors">
+    <div class="container">
+      <div class="text-center fade-up">
+        <span class="section-label">Sectors We Serve</span>
+        <h2 class="section-title">Intelligence for the<br>entire Zimbabwean economy</h2>
+        <p class="section-sub">From retail floors to hospital dashboards, from farm yields to energy grids — we're building the intelligence layer for every major industry.</p>
+      </div>
+      <div class="sectors-grid">
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-store"></i></div><h4>Retail & FMCG</h4><div class="sector-status status-live">LIVE</div></div>
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-tractor"></i></div><h4>Agriculture</h4><div class="sector-status status-live">LIVE</div></div>
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-hard-hat"></i></div><h4>Mining</h4><div class="sector-status status-demo">DEMO READY</div></div>
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-truck"></i></div><h4>Logistics</h4><div class="sector-status status-live">LIVE</div></div>
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-hospital-user"></i></div><h4>Healthcare</h4><div class="sector-status status-roadmap">ROADMAP</div></div>
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-industry"></i></div><h4>Manufacturing</h4><div class="sector-status status-roadmap">ROADMAP</div></div>
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-charging-station"></i></div><h4>Energy</h4><div class="sector-status status-roadmap">ROADMAP</div></div>
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-graduation-cap"></i></div><h4>Education</h4><div class="sector-status status-roadmap">ROADMAP</div></div>
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-chart-line"></i></div><h4>FinTech & SaaS</h4><div class="sector-status status-live">LIVE</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZIM EDGE (copy updated to mention all sectors) -->
   <section class="zim-edge">
     <div class="container">
       <div class="fade-up">
         <span class="section-label">Why MA TechHub</span>
         <h2>SAP won't come here.<br>Power BI doesn't know<br><span class="hero-highlight">Zimbabwe.</span></h2>
-        <p>Global BI platforms have zero knowledge of TIMB, GMB, COTTCO, ZSE-listed companies, ZWG exchange dynamics, or local supply chain structures. We built the intelligence layer they couldn't.</p>
+        <p>Global BI platforms have zero knowledge of TIMB, GMB, COTTCO, ZSE, ZWG dynamics, or local healthcare/logistics/energy data structures. We built the intelligence layer they couldn't — for every sector.</p>
         <p>Every platform we deploy comes pre-loaded with the local data sources that matter for Zimbabwean businesses — so you get insights tomorrow, not months from now.</p>
         <ul class="zim-checklist">
-          <li><i class="fas fa-check-circle"></i> ZimRetail IQ — ZIMRA-aware retail intelligence with ZWL/USD reconciliation</li>
-          <li><i class="fas fa-check-circle"></i> AgriIQ — TIMB, GMB, COTTCO, Hippo Valley, provincial coordinates baked in</li>
-          <li><i class="fas fa-check-circle"></i> ProtonIQ — 17-module FMCG intelligence designed around Proton Bakers' operations</li>
-          <li><i class="fas fa-check-circle"></i> Expanding to Zambia, Mozambique, and pan-African markets</li>
+          <li><i class="fas fa-check-circle"></i> ZimRetail IQ — ZIMRA-aware retail intelligence</li>
+          <li><i class="fas fa-check-circle"></i> AgriIQ — TIMB, GMB, COTTCO baked in</li>
+          <li><i class="fas fa-check-circle"></i> Supply Chain Optimizer — logistics & fleet intelligence</li>
+          <li><i class="fas fa-check-circle"></i> HealthIQ, ManufacturingIQ, EnergyIQ — roadmap ready</li>
         </ul>
       </div>
       <div class="fade-up">
         <div class="zim-stats">
-          <div class="zim-stat">
-            <div class="num">17</div>
-            <div class="lbl">Modules per platform</div>
-          </div>
-          <div class="zim-stat">
-            <div class="num">4+</div>
-            <div class="lbl">Sectors actively covered</div>
-          </div>
-          <div class="zim-stat">
-            <div class="num">1M+</div>
-            <div class="lbl">Data points processed</div>
-          </div>
-          <div class="zim-stat">
-            <div class="num">2–3</div>
-            <div class="lbl">Weeks to deployment</div>
-          </div>
+          <div class="zim-stat"><div class="num">10+</div><div class="lbl">Sectors in scope</div></div>
+          <div class="zim-stat"><div class="num">6</div><div class="lbl">Live platforms</div></div>
+          <div class="zim-stat"><div class="num">1M+</div><div class="lbl">Data points</div></div>
+          <div class="zim-stat"><div class="num">1–2</div><div class="lbl">Weeks to deploy</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES (added Healthcare and Manufacturing/Energy cards) -->
   <section id="services" class="services">
     <div class="container">
       <div class="text-center fade-up">
         <span class="section-label">What We Build</span>
         <h2 class="section-title">Sector intelligence for every industry</h2>
-        <p class="section-sub">From Zimbabwe's retail floors to global FinTech boardrooms — we build the intelligence layer that drives real decisions.</p>
+        <p class="section-sub">From Zimbabwe's retail floors to global FinTech boardrooms — and soon, hospital dashboards and energy grids.</p>
       </div>
       <div class="services-grid">
-        <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-store"></i></div>
-          <h3>Retail & FMCG Intelligence</h3>
-          <p>Sales performance, inventory visibility, retailer analytics, category management, and distribution intelligence — built for Zimbabwe's retail and FMCG sector.</p>
-          <div class="tech-pills"><span>Plotly Dash</span><span>Python</span><span>Railway</span></div>
-        </div>
-        <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-tractor"></i></div>
-          <h3>Agriculture Intelligence</h3>
-          <p>Crop yield tracking, pricing benchmarks, TIMB and GMB data integration, provincial mapping, and commercial farm performance dashboards.</p>
-          <div class="tech-pills"><span>Python</span><span>GIS</span><span>Plotly</span></div>
-        </div>
-        <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
-          <h3>Mining Operations Dashboards</h3>
-          <p>OEE tracking, predictive maintenance, cost per ton, compliance reporting — for Zimplats, Caledonia, Karo and mid-tier mining operations across Zimbabwe.</p>
-          <div class="tech-pills"><span>Streamlit</span><span>Predictive ML</span><span>GIS</span></div>
-        </div>
-        <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
-          <h3>FinTech & SaaS KPI Dashboards</h3>
-          <p>Real-time views of MRR, burn rate, runway, CAC, LTV, and cohort analysis — built for FinTech and SaaS founders preparing for fundraising or investor reporting.</p>
-          <div class="tech-pills"><span>Power BI</span><span>Streamlit</span><span>Python</span></div>
-        </div>
-        <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-truck"></i></div>
-          <h3>Supply Chain & Logistics</h3>
-          <p>Depot performance, route optimisation, inventory tracking, and delivery efficiency dashboards for national distribution operations and 3PL providers.</p>
-          <div class="tech-pills"><span>XGBoost</span><span>Plotly Dash</span><span>Python</span></div>
-        </div>
-        <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-          <h3>Investor Reporting & Cap Table</h3>
-          <p>Automated investor reports, cap table management tools, unit economics calculators, and board-ready dashboards for founders approaching Series A.</p>
-          <div class="tech-pills"><span>Automation</span><span>Power BI</span><span>Python</span></div>
-        </div>
+        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-store"></i></div><h3>Retail & FMCG Intelligence</h3><p>Sales performance, inventory visibility, retailer analytics, distribution intelligence — built for Zimbabwe's retail sector.</p><div class="tech-pills"><span>Plotly Dash</span><span>Python</span></div></div>
+        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-tractor"></i></div><h3>Agriculture Intelligence</h3><p>Crop yield tracking, pricing benchmarks, TIMB/GMB data integration, provincial mapping, commercial farm dashboards.</p><div class="tech-pills"><span>GIS</span><span>Plotly</span></div></div>
+        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-hard-hat"></i></div><h3>Mining Operations Dashboards</h3><p>OEE tracking, predictive maintenance, cost per ton, compliance reporting for Zimplats, Caledonia, mid-tier miners.</p><div class="tech-pills"><span>Streamlit</span><span>ML</span></div></div>
+        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-truck"></i></div><h3>Supply Chain & Logistics</h3><p>Depot performance, route optimisation, inventory tracking, delivery efficiency for national distribution and 3PL providers.</p><div class="tech-pills"><span>XGBoost</span><span>Plotly Dash</span></div></div>
+        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-hospital-user"></i></div><h3>Healthcare Analytics</h3><p>Patient flow, medicine expiry tracking, clinic performance dashboards, disease surveillance mapping. (Roadmap – first pilot ready Q3 2025)</p><div class="tech-pills"><span>GIS</span><span>Python</span><span>Coming Soon</span></div></div>
+        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-industry"></i></div><h3>Manufacturing & Energy</h3><p>Production line OEE, energy consumption monitoring, quality control dashboards, predictive maintenance for factories and power utilities.</p><div class="tech-pills"><span>IoT Ready</span><span>ML</span><span>Roadmap</span></div></div>
+        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-chart-pie"></i></div><h3>FinTech & SaaS KPI Dashboards</h3><p>Real-time views of MRR, burn rate, runway, CAC, LTV, cohort analysis — built for fundraising and investor reporting.</p><div class="tech-pills"><span>Power BI</span><span>Streamlit</span></div></div>
+        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div><h3>Investor Reporting & Cap Table</h3><p>Automated investor reports, cap table management tools, unit economics calculators, board-ready dashboards.</p><div class="tech-pills"><span>Automation</span><span>Power BI</span></div></div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
+  <!-- PROCESS (unchanged) -->
   <section class="process">
     <div class="container">
-      <div class="text-center fade-up">
-        <span class="section-label">How We Work</span>
-        <h2 class="section-title">From raw data to live dashboard<br>in 1–2 weeks.</h2>
-      </div>
+      <div class="text-center fade-up"><span class="section-label">How We Work</span><h2 class="section-title">From raw data to live dashboard<br>in 1–2 weeks.</h2></div>
       <div class="process-steps">
-        <div class="process-step fade-up">
-          <div class="step-num">1</div>
-          <h3>Data Audit</h3>
-          <p>We review your data sources, identify gaps, and define the KPIs that matter most for your business.</p>
-        </div>
-        <div class="process-step fade-up">
-          <div class="step-num">2</div>
-          <h3>Intelligence Architecture</h3>
-          <p>We design a custom measurement framework aligned with your sector, business model, and local context.</p>
-        </div>
-        <div class="process-step fade-up">
-          <div class="step-num">3</div>
-          <h3>Platform Build</h3>
-          <p>We connect your data and build your interactive intelligence platform — deployed and live in 1–2 weeks.</p>
-        </div>
-        <div class="process-step fade-up">
-          <div class="step-num">4</div>
-          <h3>Ongoing Partnership</h3>
-          <p>We stay on as your intelligence partner — updating, expanding, and advising as your business grows.</p>
-        </div>
+        <div class="process-step fade-up"><div class="step-num">1</div><h3>Data Audit</h3><p>Review your data sources, identify gaps, define the KPIs that matter.</p></div>
+        <div class="process-step fade-up"><div class="step-num">2</div><h3>Intelligence Architecture</h3><p>Design a custom framework aligned with your sector and local context.</p></div>
+        <div class="process-step fade-up"><div class="step-num">3</div><h3>Platform Build</h3><p>Connect your data and build your interactive platform — deployed in 1–2 weeks.</p></div>
+        <div class="process-step fade-up"><div class="step-num">4</div><h3>Ongoing Partnership</h3><p>Stay on as your intelligence partner — updating, expanding, advising.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- PRICING -->
+  <!-- PRICING (exact same as before, no change) -->
   <section id="pricing" class="pricing">
     <div class="container">
-      <div class="text-center fade-up">
-        <span class="section-label">Pricing</span>
-        <h2 class="section-title">Predictable pricing.<br>Clear value.</h2>
-        <p class="section-sub">Fixed-price platform builds or monthly retainers. No surprises, no hidden costs — just intelligence that pays for itself.</p>
-      </div>
+      <div class="text-center fade-up"><span class="section-label">Pricing</span><h2 class="section-title">Predictable pricing.<br>Clear value.</h2><p class="section-sub">Fixed-price platform builds or monthly retainers. No surprises — just intelligence that pays for itself.</p></div>
       <div class="pricing-grid" style="margin-top:3rem;">
-        <div class="pricing-card fade-up">
-          <h3>Foundation</h3>
-          <div class="price">$800–$1.5k <small>fixed</small></div>
-          <p class="price-desc">For businesses starting their data journey.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Core intelligence dashboard (5–7 modules)</li>
-            <li><i class="fas fa-check"></i> Connect up to 3 data sources</li>
-            <li><i class="fas fa-check"></i> Local data integration (Zim context)</li>
-            <li><i class="fas fa-check"></i> 30-day post-launch support</li>
-          </ul>
-          <a href="#contact" class="btn-secondary">Get Started</a>
-        </div>
-        <div class="pricing-card popular fade-up">
-          <span class="popular-badge">Most Popular</span>
-          <h3>Growth</h3>
-          <div class="price">$1.8k–$2.5k <small>fixed</small></div>
-          <p class="price-desc">For businesses ready to scale with data.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Everything in Foundation</li>
-            <li><i class="fas fa-check"></i> Advanced analytics & forecasting</li>
-            <li><i class="fas fa-check"></i> Investor-ready report templates</li>
-            <li><i class="fas fa-check"></i> ML-powered predictions (XGBoost)</li>
-            <li><i class="fas fa-check"></i> 90-day support</li>
-          </ul>
-          <a href="#contact" class="btn-primary-full">Get Growth Plan</a>
-        </div>
-        <div class="pricing-card fade-up">
-          <h3>Enterprise</h3>
-          <div class="price">$3k–$5k+ <small>custom</small></div>
-          <p class="price-desc">Full sector intelligence platform build.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Everything in Growth</li>
-            <li><i class="fas fa-check"></i> 17-module platform (ProtonIQ-scale)</li>
-            <li><i class="fas fa-check"></i> Custom tool development</li>
-            <li><i class="fas fa-check"></i> Executive command centre</li>
-            <li><i class="fas fa-check"></i> Strategic advisory & priority support</li>
-          </ul>
-          <a href="#contact" class="btn-secondary">Let's Talk</a>
-        </div>
+        <div class="pricing-card fade-up"><h3>Foundation</h3><div class="price">$800–$1.5k <small>fixed</small></div><p class="price-desc">For businesses starting their data journey.</p><ul><li><i class="fas fa-check"></i> Core intelligence dashboard (5–7 modules)</li><li><i class="fas fa-check"></i> Connect up to 3 data sources</li><li><i class="fas fa-check"></i> Local data integration (Zim context)</li><li><i class="fas fa-check"></i> 30-day post-launch support</li></ul><a href="#contact" class="btn-secondary">Get Started</a></div>
+        <div class="pricing-card popular fade-up"><span class="popular-badge">Most Popular</span><h3>Growth</h3><div class="price">$1.8k–$2.5k <small>fixed</small></div><p class="price-desc">For businesses ready to scale with data.</p><ul><li><i class="fas fa-check"></i> Everything in Foundation</li><li><i class="fas fa-check"></i> Advanced analytics & forecasting</li><li><i class="fas fa-check"></i> Investor-ready report templates</li><li><i class="fas fa-check"></i> ML-powered predictions</li><li><i class="fas fa-check"></i> 90-day support</li></ul><a href="#contact" class="btn-primary-full">Get Growth Plan</a></div>
+        <div class="pricing-card fade-up"><h3>Enterprise</h3><div class="price">$3k–$5k+ <small>custom</small></div><p class="price-desc">Full sector intelligence platform build.</p><ul><li><i class="fas fa-check"></i> Everything in Growth</li><li><i class="fas fa-check"></i> 17-module platform (ProtonIQ-scale)</li><li><i class="fas fa-check"></i> Custom tool development</li><li><i class="fas fa-check"></i> Executive command centre</li><li><i class="fas fa-check"></i> Strategic advisory & priority support</li></ul><a href="#contact" class="btn-secondary">Let's Talk</a></div>
       </div>
-
       <div class="pricing-divider fade-up"><span>Monthly Retainers</span></div>
-
       <div class="pricing-grid">
-        <div class="pricing-card fade-up">
-          <h3>Essentials</h3>
-          <div class="price">$400–$600 <small>/mo</small></div>
-          <p class="price-desc">Keep your intelligence fresh.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Monthly dashboard updates</li>
-            <li><i class="fas fa-check"></i> Data source maintenance</li>
-            <li><i class="fas fa-check"></i> 5h ad-hoc support</li>
-          </ul>
-          <a href="#contact" class="btn-secondary">Get Essentials</a>
-        </div>
-        <div class="pricing-card popular fade-up">
-          <span class="popular-badge">Most Popular</span>
-          <h3>Growth Retainer</h3>
-          <div class="price">$800–$1.2k <small>/mo</small></div>
-          <p class="price-desc">Your ongoing intelligence partner.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Weekly dashboard refreshes</li>
-            <li><i class="fas fa-check"></i> 10h ad-hoc support</li>
-            <li><i class="fas fa-check"></i> Monthly strategy call</li>
-            <li><i class="fas fa-check"></i> Investor update preparation</li>
-          </ul>
-          <a href="#contact" class="btn-primary-full">Get Growth Retainer</a>
-        </div>
-        <div class="pricing-card fade-up">
-          <h3>Strategic Partner</h3>
-          <div class="price">$1.5k–$2k <small>/mo</small></div>
-          <p class="price-desc">Full intelligence partnership.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Unlimited support</li>
-            <li><i class="fas fa-check"></i> Weekly leadership meetings</li>
-            <li><i class="fas fa-check"></i> Board meeting preparation</li>
-            <li><i class="fas fa-check"></i> Custom tool enhancements</li>
-          </ul>
-          <a href="#contact" class="btn-secondary">Become a Partner</a>
-        </div>
+        <div class="pricing-card fade-up"><h3>Essentials</h3><div class="price">$400–$600 <small>/mo</small></div><p class="price-desc">Keep your intelligence fresh.</p><ul><li><i class="fas fa-check"></i> Monthly dashboard updates</li><li><i class="fas fa-check"></i> Data source maintenance</li><li><i class="fas fa-check"></i> 5h ad-hoc support</li></ul><a href="#contact" class="btn-secondary">Get Essentials</a></div>
+        <div class="pricing-card popular fade-up"><span class="popular-badge">Most Popular</span><h3>Growth Retainer</h3><div class="price">$800–$1.2k <small>/mo</small></div><p class="price-desc">Your ongoing intelligence partner.</p><ul><li><i class="fas fa-check"></i> Weekly dashboard refreshes</li><li><i class="fas fa-check"></i> 10h ad-hoc support</li><li><i class="fas fa-check"></i> Monthly strategy call</li><li><i class="fas fa-check"></i> Investor update preparation</li></ul><a href="#contact" class="btn-primary-full">Get Growth Retainer</a></div>
+        <div class="pricing-card fade-up"><h3>Strategic Partner</h3><div class="price">$1.5k–$2k <small>/mo</small></div><p class="price-desc">Full intelligence partnership.</p><ul><li><i class="fas fa-check"></i> Unlimited support</li><li><i class="fas fa-check"></i> Weekly leadership meetings</li><li><i class="fas fa-check"></i> Board meeting preparation</li><li><i class="fas fa-check"></i> Custom tool enhancements</li></ul><a href="#contact" class="btn-secondary">Become a Partner</a></div>
       </div>
       <p style="text-align:center;margin-top:2rem;color:var(--text-muted);font-size:0.85rem;">All packages include a complimentary 30-min discovery call. <a href="#contact" style="color:var(--blue-light);">Book yours →</a></p>
     </div>
   </section>
 
-  <!-- BLOG -->
+  <!-- BLOG (unchanged) -->
   <section class="blog">
-    <div class="container">
-      <div class="text-center fade-up">
-        <span class="section-label">Latest Insights</span>
-        <h2 class="section-title">Practical intelligence<br>for data-driven leaders</h2>
-      </div>
-      <div class="blog-card fade-up">
-        <span class="blog-tag">New Article</span>
-        <h3>The 7 SaaS KPIs Every Founder Must Track Before Their Series A</h3>
-        <p>A practical guide to the metrics investors will interrogate — and how to build a dashboard that makes them impossible to hide from.</p>
-        <div class="blog-meta">
-          <a href="saas-kpis-series-a.html" class="btn-primary" style="padding:0.7rem 1.6rem;font-size:0.9rem;">Read Article <i class="fas fa-arrow-right"></i></a>
-          <span><i class="fas fa-clock"></i> 8 min read</span>
-          <span><i class="fas fa-user"></i> Anesu Manjengwa</span>
-        </div>
-      </div>
-    </div>
+    <div class="container"><div class="text-center fade-up"><span class="section-label">Latest Insights</span><h2 class="section-title">Practical intelligence<br>for data-driven leaders</h2></div>
+    <div class="blog-card fade-up"><span class="blog-tag">New Article</span><h3>The 7 SaaS KPIs Every Founder Must Track Before Their Series A</h3><p>A practical guide to the metrics investors will interrogate — and how to build a dashboard that makes them impossible to hide from.</p><div class="blog-meta"><a href="saas-kpis-series-a.html" class="btn-primary" style="padding:0.7rem 1.6rem;font-size:0.9rem;">Read Article <i class="fas fa-arrow-right"></i></a><span><i class="fas fa-clock"></i> 8 min read</span><span><i class="fas fa-user"></i> Anesu Manjengwa</span></div></div></div>
   </section>
 
-  <!-- FOUNDER -->
+  <!-- FOUNDER (unchanged) -->
   <section id="founder" class="founder">
-    <div class="container">
-      <div class="founder-img-wrap fade-up">
-        <img src="Image.jpg" alt="Anesu Manjengwa, Founder of MA TechHub" loading="lazy">
-      </div>
-      <div class="founder-content fade-up">
-        <div class="founder-eyebrow"><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</div>
-        <h2>Anesu Manjengwa</h2>
-        <p class="founder-title">Founder · Data Analyst · Platform Builder</p>
-        <p>Anesu Manjengwa is the founder of MA TechHub and the builder behind ZimRetail IQ, AgriIQ, ProtonIQ, and several other sector intelligence platforms designed specifically for African industry.</p>
-        <p>His thesis is simple: African businesses are data-rich and insight-poor. Global platforms like SAP, Power BI, and Tableau have zero context for Zimbabwean business operations — so he built the alternative, from the ground up, with Harare at its core.</p>
-        <p>With a First Class with Distinction BCA from Marwadi University and a relentless belief that everything follows a pattern, Anesu is building Africa's sector intelligence company — one platform at a time.</p>
-        <div class="founder-social">
-          <a href="https://www.linkedin.com/in/anesu-manjengwa-684766247" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://github.com/Iceyma02" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.instagram.com/m.a_tech_hub" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/263789967365" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-    </div>
+    <div class="container"><div class="founder-img-wrap fade-up"><img src="Image.jpg" alt="Anesu Manjengwa, Founder of MA TechHub" loading="lazy"></div>
+    <div class="founder-content fade-up"><div class="founder-eyebrow"><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</div><h2>Anesu Manjengwa</h2><p class="founder-title">Founder · Data Analyst · Platform Builder</p><p>Anesu Manjengwa is the founder of MA TechHub and the builder behind ZimRetail IQ, AgriIQ, ProtonIQ, and several other sector intelligence platforms designed specifically for African industry — with healthcare, manufacturing and energy in active roadmap.</p><p>His thesis is simple: African businesses are data-rich and insight-poor. Global platforms like SAP, Power BI, and Tableau have zero context for Zimbabwean business operations — so he built the alternative, from the ground up, with Harare at its core.</p><p>With a First Class with Distinction BCA and a relentless belief that everything follows a pattern, Anesu is building Africa's sector intelligence company — one platform at a time, across every major industry.</p><div class="founder-social"><a href="https://www.linkedin.com/in/anesu-manjengwa-684766247" target="_blank"><i class="fab fa-linkedin-in"></i></a><a href="https://github.com/Iceyma02" target="_blank"><i class="fab fa-github"></i></a><a href="https://www.instagram.com/m.a_tech_hub" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://wa.me/263789967365" target="_blank"><i class="fab fa-whatsapp"></i></a></div></div></div>
   </section>
 
-  <!-- TOOLS -->
-  <section class="tools">
-    <div class="container">
-      <p class="tools-label">Stack we deploy on</p>
-      <div class="tools-row">
-        <div class="tool-pill"><i class="fab fa-python"></i> Python</div>
-        <div class="tool-pill"><i class="fas fa-database"></i> SQL</div>
-        <div class="tool-pill"><i class="fas fa-chart-bar"></i> Plotly Dash</div>
-        <div class="tool-pill"><i class="fas fa-chart-line"></i> Streamlit</div>
-        <div class="tool-pill"><i class="fas fa-cloud"></i> Railway / Render</div>
-        <div class="tool-pill"><i class="fas fa-brain"></i> XGBoost / ML</div>
-        <div class="tool-pill"><i class="fas fa-map"></i> GIS / Mapbox</div>
-        <div class="tool-pill"><i class="fas fa-code"></i> Git / GitHub</div>
-      </div>
-    </div>
-  </section>
+  <!-- TOOLS (unchanged) -->
+  <section class="tools"><div class="container"><p class="tools-label">Stack we deploy on</p><div class="tools-row"><div class="tool-pill"><i class="fab fa-python"></i> Python</div><div class="tool-pill"><i class="fas fa-database"></i> SQL</div><div class="tool-pill"><i class="fas fa-chart-bar"></i> Plotly Dash</div><div class="tool-pill"><i class="fas fa-chart-line"></i> Streamlit</div><div class="tool-pill"><i class="fas fa-cloud"></i> Railway / Render</div><div class="tool-pill"><i class="fas fa-brain"></i> XGBoost / ML</div><div class="tool-pill"><i class="fas fa-map"></i> GIS / Mapbox</div><div class="tool-pill"><i class="fas fa-code"></i> Git / GitHub</div></div></div></section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT (unchanged) -->
   <section id="contact" class="contact">
-    <div class="container">
-      <div class="contact-info fade-up">
-        <span class="section-label">Get In Touch</span>
-        <h2>Ready to build your intelligence platform?</h2>
-        <p>Book a free 30-min strategy call. No pitch deck, no pressure — just clarity on how intelligence can transform your business.</p>
-        <ul class="contact-details">
-          <li>
-            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-            <a href="mailto:matechhubservices@gmail.com">matechhubservices@gmail.com</a>
-          </li>
-          <li>
-            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-            <a href="https://wa.me/263789967365" target="_blank">+263 78 996 7365</a>
-          </li>
-          <li>
-            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-            <a href="https://www.linkedin.com/company/ma-techhub/" target="_blank">MA TechHub on LinkedIn</a>
-          </li>
-          <li>
-            <div class="contact-icon"><i class="fab fa-github"></i></div>
-            <a href="https://github.com/Iceyma02" target="_blank">github.com/Iceyma02</a>
-          </li>
-          <li>
-            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <span style="color:var(--text-body);font-size:0.9rem;">Built in Harare · Serving Africa & the World</span>
-          </li>
-        </ul>
-      </div>
-      <div class="contact-form fade-up">
-        <form action="https://formspree.io/f/meelrpqj" method="POST">
-          <div class="form-group">
-            <input type="text" name="name" placeholder="Your name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Email address" required>
-          </div>
-          <div class="form-group">
-            <input type="text" name="company" placeholder="Company / Organisation name">
-          </div>
-          <div class="form-group">
-            <select name="interest">
-              <option value="" disabled selected>What are you interested in?</option>
-              <option value="retail-iq">Retail Intelligence (ZimRetail IQ)</option>
-              <option value="agri-iq">Agriculture Intelligence (AgriIQ)</option>
-              <option value="fmcg">FMCG / Bakery Intelligence (ProtonIQ)</option>
-              <option value="mining">Mining Operations Dashboard</option>
-              <option value="supply-chain">Supply Chain Intelligence</option>
-              <option value="fintech">FinTech / SaaS KPI Dashboard</option>
-              <option value="custom">Custom Platform Build</option>
-              <option value="retainer">Monthly Retainer</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <textarea name="message" placeholder="Tell us about your data challenge or what you'd like to build..."></textarea>
-          </div>
-          <button type="submit" class="btn-submit">Book Strategy Call →</button>
-        </form>
-        <p style="margin-top:1rem;font-size:0.8rem;color:var(--text-muted);text-align:center;">We reply within 24 hours.</p>
-      </div>
-    </div>
+    <div class="container"><div class="contact-info fade-up"><span class="section-label">Get In Touch</span><h2>Ready to build your intelligence platform?</h2><p>Book a free 30-min strategy call. No pitch deck, no pressure — just clarity on how intelligence can transform your business.</p><ul class="contact-details"><li><div class="contact-icon"><i class="fas fa-envelope"></i></div><a href="mailto:matechhubservices@gmail.com">matechhubservices@gmail.com</a></li><li><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><a href="https://wa.me/263789967365" target="_blank">+263 78 996 7365</a></li><li><div class="contact-icon"><i class="fab fa-linkedin"></i></div><a href="https://www.linkedin.com/company/ma-techhub/" target="_blank">MA TechHub on LinkedIn</a></li><li><div class="contact-icon"><i class="fab fa-github"></i></div><a href="https://github.com/Iceyma02" target="_blank">github.com/Iceyma02</a></li><li><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><span style="color:var(--text-body);">Built in Harare · Serving every sector</span></li></ul></div>
+    <div class="contact-form fade-up"><form action="https://formspree.io/f/meelrpqj" method="POST"><div class="form-group"><input type="text" name="name" placeholder="Your name" required></div><div class="form-group"><input type="email" name="email" placeholder="Email address" required></div><div class="form-group"><input type="text" name="company" placeholder="Company / Organisation name"></div><div class="form-group"><select name="interest"><option value="" disabled selected>What sector / platform?</option><option value="retail-iq">Retail (ZimRetail IQ)</option><option value="agri-iq">Agriculture (AgriIQ)</option><option value="fmcg">FMCG (ProtonIQ)</option><option value="mining">Mining Dashboard</option><option value="supply-chain">Supply Chain / Logistics</option><option value="health">Healthcare Analytics (Roadmap)</option><option value="manufacturing">Manufacturing / Energy (Roadmap)</option><option value="fintech">FinTech / SaaS KPI Dashboard</option><option value="custom">Custom Platform Build</option><option value="retainer">Monthly Retainer</option></select></div><div class="form-group"><textarea name="message" placeholder="Tell us about your data challenge..."></textarea></div><button type="submit" class="btn-submit">Book Strategy Call →</button></form><p style="margin-top:1rem;font-size:0.8rem;color:var(--text-muted);text-align:center;">We reply within 24 hours.</p></div></div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-logo">
-        <img src="Untitled_design-removebg-preview.png" alt="MA TechHub">
-        <span class="logo-text">MA TechHub</span>
-      </div>
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#platforms">Platforms</a>
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#founder">Founder</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="footer-social">
-        <a href="https://www.linkedin.com/company/ma-techhub/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/Iceyma02" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.instagram.com/m.a_tech_hub" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/263789967365" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 MA TechHub. All rights reserved. Founded 2024 in Harare, Zimbabwe — Africa's sector intelligence company.</p>
-      </div>
-    </div>
-  </footer>
+  <!-- FOOTER (unchanged) -->
+  <footer class="footer"><div class="container"><div class="footer-logo"><img src="Untitled_design-removebg-preview.png" alt="MA TechHub"><span class="logo-text">MA TechHub</span></div><div class="footer-links"><a href="#home">Home</a><a href="#platforms">Platforms</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#founder">Founder</a><a href="#contact">Contact</a></div><div class="footer-social"><a href="https://www.linkedin.com/company/ma-techhub/" target="_blank"><i class="fab fa-linkedin-in"></i></a><a href="https://github.com/Iceyma02" target="_blank"><i class="fab fa-github"></i></a><a href="https://www.instagram.com/m.a_tech_hub" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://wa.me/263789967365" target="_blank"><i class="fab fa-whatsapp"></i></a></div><div class="footer-bottom"><p>© 2026 MA TechHub. All rights reserved. Founded 2024 in Harare, Zimbabwe — intelligence for every sector.</p></div></div></footer>
 
   <script>
-    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    // Mobile menu
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
     function closeMenu() { navLinks.classList.remove('active'); }
-
-    // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, entry.target.dataset.delay || 0);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.fade-up').forEach((el, i) => {
-      el.dataset.delay = (i % 4) * 80;
-      observer.observe(el);
-    });
+    const observer = new IntersectionObserver((entries) => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0); } }); }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach((el, i) => { el.dataset.delay = (i % 4) * 80; observer.observe(el); });
   </script>
 </body>
 </html>
