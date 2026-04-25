@@ -666,6 +666,110 @@
       color: var(--text-muted);
     }
 
+    /* Testimonials Section (NEW) */
+    .testimonials {
+      background: linear-gradient(135deg, var(--ink), var(--ink-2));
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: var(--ink-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: all 0.3s;
+      text-align: left;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .testimonial-card i.fa-quote-left {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: block;
+      opacity: 0.7;
+    }
+
+    .testimonial-card p {
+      color: var(--text-body);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .testimonial-title {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Expansion Timeline (NEW) */
+    .expansion {
+      background: var(--ink);
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .timeline-step {
+      text-align: center;
+      position: relative;
+    }
+
+    .timeline-year {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--blue-light);
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--ink-2);
+      border: 1px solid var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.3rem;
+    }
+
+    .timeline-step h4 {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-step p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
     /* Zim Edge */
     .zim-edge {
       background: linear-gradient(135deg, var(--ink-2), var(--ink-3));
@@ -1019,6 +1123,29 @@
       color: var(--text-muted);
     }
 
+    /* Local Pricing Note (NEW) */
+    .local-pricing-note {
+      text-align: center;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--accent-dim);
+      border: 1px solid rgba(0,217,184,0.2);
+      border-radius: var(--radius-sm);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .local-pricing-note p {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 0;
+    }
+
+    .local-pricing-note i {
+      margin-right: 0.5rem;
+    }
+
     /* Founder */
     .founder {
       background: var(--ink);
@@ -1112,7 +1239,7 @@
       border-color: var(--blue);
     }
 
-    /* Blog */
+    /* Blog - Renamed to Featured Insight */
     .blog {
       background: var(--ink-2);
     }
@@ -1444,7 +1571,8 @@
       .hero .container,
       .zim-edge .container,
       .founder .container,
-      .contact .container {
+      .contact .container,
+      .expansion .container {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
@@ -1487,6 +1615,11 @@
       .process-steps {
         gap: 1.5rem;
       }
+
+      .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
     }
 
     @media (max-width: 600px) {
@@ -1525,6 +1658,10 @@
       .btn-primary,
       .btn-ghost {
         justify-content: center;
+      }
+
+      .timeline-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -1592,7 +1729,8 @@
             <span>ZimRetail IQ · Live Dashboard</span>
           </div>
           <div class="dashboard-img">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dashboard" loading="lazy">
+            <!-- REPLACE THIS WITH YOUR ACTUAL ZIMRETAIL IQ SCREENSHOT -->
+            <img src="zimretail-screenshot.png" alt="ZimRetail IQ Dashboard" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
           </div>
         </div>
       </div>
@@ -1718,11 +1856,79 @@
         <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-tractor"></i></div><h4>Agriculture</h4><div class="sector-status status-live">LIVE</div></div>
         <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-hard-hat"></i></div><h4>Mining</h4><div class="sector-status status-demo">DEMO</div></div>
         <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-truck"></i></div><h4>Logistics</h4><div class="sector-status status-live">LIVE</div></div>
-        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-hospital-user"></i></div><h4>Healthcare</h4><div class="sector-status status-roadmap">ROADMAP</div></div>
-        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-industry"></i></div><h4>Manufacturing</h4><div class="sector-status status-roadmap">ROADMAP</div></div>
-        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-charging-station"></i></div><h4>Energy</h4><div class="sector-status status-roadmap">ROADMAP</div></div>
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-hospital-user"></i></div><h4>Healthcare</h4><div class="sector-status status-roadmap">ROADMAP · Q4 2026</div></div>
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-industry"></i></div><h4>Manufacturing</h4><div class="sector-status status-roadmap">ROADMAP · Q1 2027</div></div>
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-charging-station"></i></div><h4>Energy</h4><div class="sector-status status-roadmap">ROADMAP · Q1 2027</div></div>
         <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-graduation-cap"></i></div><h4>Education</h4><div class="sector-status status-roadmap">ROADMAP</div></div>
         <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-chart-line"></i></div><h4>FinTech & SaaS</h4><div class="sector-status status-live">LIVE</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="text-center fade-up">
+        <span class="section-label">Trusted By</span>
+        <h2 class="section-title">What partners & stakeholders say</h2>
+        <p class="section-sub">From live demos to ongoing conversations — here's what people who've seen our work have to say.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <i class="fas fa-quote-left"></i>
+          <p>"The ZimRetail IQ demo showed me what my own retail data could look like. I didn't know this was possible without a full IT department."</p>
+          <div class="testimonial-name">— Retail chain owner</div>
+          <div class="testimonial-title">Harare, prospective client</div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <i class="fas fa-quote-left"></i>
+          <p>"Finally, someone building intelligence tools with Zimbabwe's actual data sources. The AgriIQ dashboard with TIMB integration is exactly what commercial farms need."</p>
+          <div class="testimonial-name">— Agriculture sector consultant</div>
+          <div class="testimonial-title">Industry advisor</div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <i class="fas fa-quote-left"></i>
+          <p>"Most dashboards are generic. This one actually understood our depot structure and delivery routes. The XGBoost delay prediction was surprisingly accurate."</p>
+          <div class="testimonial-name">— Logistics operations manager</div>
+          <div class="testimonial-title">Post-demo feedback</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: African Expansion Timeline -->
+  <section class="expansion">
+    <div class="container">
+      <div class="text-center fade-up">
+        <span class="section-label">Pan-African Vision</span>
+        <h2 class="section-title">From Harare to the continent</h2>
+        <p class="section-sub">Same platforms. New markets. Local context swapped in, not rebuilt from scratch.</p>
+      </div>
+      <div class="timeline-grid">
+        <div class="timeline-step fade-up">
+          <div class="timeline-year">2024–2026</div>
+          <div class="timeline-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h4>Zimbabwe</h4>
+          <p>Foundational market. Live platforms: Retail, Agri, Mining, Logistics, FinTech</p>
+        </div>
+        <div class="timeline-step fade-up">
+          <div class="timeline-year">2026–2027</div>
+          <div class="timeline-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h4>Zambia</h4>
+          <p>Copper belt mining, agriculture, retail expansion</p>
+        </div>
+        <div class="timeline-step fade-up">
+          <div class="timeline-year">2027–2028</div>
+          <div class="timeline-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h4>Botswana & Mozambique</h4>
+          <p>Mining (Botswana), logistics corridor (Mozambique)</p>
+        </div>
+        <div class="timeline-step fade-up">
+          <div class="timeline-year">2028+</div>
+          <div class="timeline-icon"><i class="fas fa-globe-africa"></i></div>
+          <h4>Pan-African</h4>
+          <p>Ghana, Tanzania, Kenya — intelligence for the continent</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1764,8 +1970,8 @@
         <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-tractor"></i></div><h3>Agriculture Intelligence</h3><p>Crop yield tracking, pricing benchmarks, TIMB/GMB data integration, provincial mapping, commercial farm dashboards.</p><div class="tech-pills"><span>GIS</span><span>Plotly</span></div></div>
         <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-hard-hat"></i></div><h3>Mining Operations Dashboards</h3><p>OEE tracking, predictive maintenance, cost per ton, compliance reporting for Zimplats, Caledonia, mid-tier miners.</p><div class="tech-pills"><span>Streamlit</span><span>ML</span></div></div>
         <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-truck"></i></div><h3>Supply Chain & Logistics</h3><p>Depot performance, route optimisation, inventory tracking, delivery efficiency for national distribution and 3PL providers.</p><div class="tech-pills"><span>XGBoost</span><span>Plotly Dash</span></div></div>
-        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-hospital-user"></i></div><h3>Healthcare Analytics</h3><p>Patient flow, medicine expiry tracking, clinic performance dashboards, disease surveillance mapping. (Roadmap – Q3 2025)</p><div class="tech-pills"><span>GIS</span><span>Python</span><span>Coming Soon</span></div></div>
-        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-industry"></i></div><h3>Manufacturing & Energy</h3><p>Production line OEE, energy consumption monitoring, quality control dashboards, predictive maintenance for factories and power utilities.</p><div class="tech-pills"><span>IoT Ready</span><span>ML</span><span>Roadmap</span></div></div>
+        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-hospital-user"></i></div><h3>Healthcare Analytics</h3><p>Patient flow, medicine expiry tracking, clinic performance dashboards, disease surveillance mapping. (Roadmap – Q4 2026)</p><div class="tech-pills"><span>GIS</span><span>Python</span><span>Coming Soon</span></div></div>
+        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-industry"></i></div><h3>Manufacturing & Energy</h3><p>Production line OEE, energy consumption monitoring, quality control dashboards, predictive maintenance for factories and power utilities. (Roadmap – Q1 2027)</p><div class="tech-pills"><span>IoT Ready</span><span>ML</span><span>Roadmap</span></div></div>
         <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-chart-pie"></i></div><h3>FinTech & SaaS KPI Dashboards</h3><p>Real-time views of MRR, burn rate, runway, CAC, LTV, cohort analysis — built for fundraising and investor reporting.</p><div class="tech-pills"><span>Power BI</span><span>Streamlit</span></div></div>
         <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div><h3>Investor Reporting & Cap Table</h3><p>Automated investor reports, cap table management, unit economics, board-ready dashboards.</p><div class="tech-pills"><span>Automation</span><span>Power BI</span></div></div>
       </div>
@@ -1843,14 +2049,21 @@
           <a href="#contact" class="btn-secondary">Become a Partner</a>
         </div>
       </div>
+
+      <!-- NEW: Local Pricing Note -->
+      <div class="local-pricing-note fade-up">
+        <p><i class="fas fa-exchange-alt"></i> Local Zimbabwean pricing (ZWG) available on request – contact us for a quote tailored to your market.</p>
+      </div>
+
       <p style="text-align: center; margin-top: 1.8rem; color: var(--text-muted); font-size: 0.8rem;">All packages include a complimentary 30-min discovery call. <a href="#contact" style="color: var(--blue-light);">Book yours →</a></p>
     </div>
   </section>
 
+  <!-- BLOG SECTION RENAMED to "Featured Insight" -->
   <section class="blog">
     <div class="container">
       <div class="text-center fade-up">
-        <span class="section-label">Latest Insights</span>
+        <span class="section-label">Featured Insight</span>
         <h2 class="section-title">Practical intelligence<br>for data-driven leaders</h2>
       </div>
       <div class="blog-card fade-up">
@@ -1875,7 +2088,7 @@
         <div class="founder-eyebrow"><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</div>
         <h2>Anesu Manjengwa</h2>
         <p class="founder-title">Founder · Data Analyst · Platform Builder</p>
-        <p>Anesu Manjengwa is the founder of MA TechHub and the builder behind ZimRetail IQ, AgriIQ, ProtonIQ, and several other sector intelligence platforms designed specifically for African industry — with healthcare, manufacturing and energy in active roadmap.</p>
+        <p>Anesu Manjengwa is the founder of MA TechHub and the builder behind ZimRetail IQ, AgriIQ, ProtonIQ, and several other sector intelligence platforms designed specifically for African industry — with healthcare, manufacturing and energy in active roadmap (Q4 2026–Q1 2027).</p>
         <p>His thesis is simple: African businesses are data-rich and insight-poor. Global platforms like SAP, Power BI, and Tableau have zero context for Zimbabwean business operations — so he built the alternative, from the ground up, with Harare at its core.</p>
         <p>With a First Class with Distinction BCA and a relentless belief that everything follows a pattern, Anesu is building Africa's sector intelligence company — one platform at a time, across every major industry.</p>
         <div class="founder-social">
@@ -1931,8 +2144,8 @@
               <option value="fmcg">FMCG (ProtonIQ)</option>
               <option value="mining">Mining Dashboard</option>
               <option value="supply-chain">Supply Chain / Logistics</option>
-              <option value="health">Healthcare Analytics (Roadmap)</option>
-              <option value="manufacturing">Manufacturing / Energy (Roadmap)</option>
+              <option value="health">Healthcare Analytics (Roadmap Q4 2026)</option>
+              <option value="manufacturing">Manufacturing / Energy (Roadmap Q1 2027)</option>
               <option value="fintech">FinTech / SaaS KPI Dashboard</option>
               <option value="custom">Custom Platform Build</option>
               <option value="retainer">Monthly Retainer</option>
