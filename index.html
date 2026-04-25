@@ -4,16 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MA TechHub – Sector Intelligence Platforms for African Businesses</title>
-  <meta name="description" content="Zimbabwe's sector intelligence company. Live dashboards for retail, agriculture, mining, FMCG, health, logistics, manufacturing, energy, education and FinTech. Built in Harare, ready for Africa.">
+  <meta name="description" content="Zimbabwe's sector intelligence company. Live dashboards for retail, agriculture, mining, logistics, health, manufacturing, energy, education and FinTech. Built in Harare, ready for Africa.">
   <meta property="og:title" content="MA TechHub – Africa's Sector Intelligence Company">
-  <meta property="og:description" content="We build the intelligence layer for every African industry. ZimRetail IQ, AgriIQ, ProtonIQ, HealthIQ and more.">
+  <meta property="og:description" content="We build the intelligence layer for every African industry. ZimRetail IQ, AgriIQ, ProtonIQ, and more.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -21,7 +20,6 @@
       --ink: #08090d;
       --ink-2: #11141f;
       --ink-3: #1a1f30;
-      --surface: #f4f5f8;
       --white: #ffffff;
       --blue: #2563eb;
       --blue-light: #3b82f6;
@@ -31,16 +29,21 @@
       --text-body: #9faabf;
       --text-muted: #64748b;
       --border: rgba(255,255,255,0.06);
-      --border-light: #e2e8f0;
       --radius: 20px;
       --radius-sm: 12px;
       --font-head: 'Syne', sans-serif;
       --font-body: 'DM Sans', sans-serif;
     }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: var(--font-body);
@@ -50,7 +53,10 @@
       overflow-x: hidden;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     .container {
       max-width: 1240px;
@@ -58,7 +64,7 @@
       padding: 0 2rem;
     }
 
-    /* ── NOISE OVERLAY ── */
+    /* Noise overlay */
     body::before {
       content: '';
       position: fixed;
@@ -69,7 +75,7 @@
       opacity: 0.35;
     }
 
-    /* ── NAVBAR ── */
+    /* Navbar */
     .navbar {
       position: fixed;
       top: 0;
@@ -78,99 +84,122 @@
       padding: 1rem 0;
       transition: all 0.4s ease;
     }
+
     .navbar.scrolled {
-      background: rgba(8,9,13,0.92);
+      background: rgba(8, 9, 13, 0.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       padding: 0.7rem 0;
     }
+
     .navbar .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.6rem;
     }
-    .logo-img { height: 38px; width: auto; }
+
+    .logo-img {
+      height: 34px;
+      width: auto;
+    }
+
     .logo-text {
       font-family: var(--font-head);
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       background: linear-gradient(135deg, #fff 40%, #60a5fa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      white-space: nowrap;
     }
+
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       font-size: 0.9rem;
       font-weight: 500;
       color: var(--text-body);
     }
-    .nav-links a { transition: color 0.2s; }
-    .nav-links a:hover { color: var(--white); }
+
+    .nav-links a {
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
     .nav-cta {
       background: var(--blue);
       color: white !important;
-      padding: 0.6rem 1.4rem;
+      padding: 0.55rem 1.3rem;
       border-radius: 40px;
       font-weight: 600;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       transition: all 0.3s;
       border: 1px solid transparent;
+      white-space: nowrap;
     }
+
     .nav-cta:hover {
       background: transparent;
       border-color: var(--blue-light);
       color: var(--blue-light) !important;
     }
-    .menu-toggle { display: none; font-size: 1.4rem; color: white; cursor: pointer; }
 
-    /* ── HERO ── */
+    .menu-toggle {
+      display: none;
+      font-size: 1.3rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Hero */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 8rem 0 5rem;
+      padding: 7rem 0 5rem;
       position: relative;
       overflow: hidden;
     }
 
-    /* Grid background */
     .hero::after {
       content: '';
       position: absolute;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
       z-index: 0;
     }
 
-    /* Glow orbs */
     .hero-glow-1 {
       position: absolute;
       top: -10%;
       right: -5%;
       width: 700px;
       height: 700px;
-      background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 65%);
       border-radius: 50%;
       z-index: 0;
     }
+
     .hero-glow-2 {
       position: absolute;
       bottom: -20%;
       left: -10%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(0,217,184,0.07) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(0, 217, 184, 0.06) 0%, transparent 65%);
       border-radius: 50%;
       z-index: 0;
     }
@@ -180,43 +209,44 @@
       z-index: 2;
       display: flex;
       align-items: center;
-      gap: 4rem;
+      gap: 3rem;
     }
 
-    .hero-content { flex: 1.1; }
+    .hero-content {
+      flex: 1;
+    }
 
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       background: var(--accent-dim);
-      border: 1px solid rgba(0,217,184,0.25);
+      border: 1px solid rgba(0, 217, 184, 0.25);
       color: var(--accent);
-      padding: 0.4rem 1rem;
+      padding: 0.35rem 1rem;
       border-radius: 40px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s ease both;
     }
-    .hero-eyebrow i { font-size: 0.75rem; }
 
     .hero-content h1 {
       font-family: var(--font-head);
-      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s 0.1s ease both;
+      margin-bottom: 1.2rem;
     }
+
     .hero-highlight {
       background: linear-gradient(135deg, #60a5fa, #2563eb);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
     .hero-accent {
       background: linear-gradient(135deg, var(--accent), #00b89c);
       -webkit-background-clip: text;
@@ -224,30 +254,34 @@
     }
 
     .hero-content p {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       color: var(--text-body);
-      max-width: 520px;
-      margin-bottom: 2.5rem;
-      line-height: 1.7;
-      animation: fadeUp 0.6s 0.2s ease both;
+      max-width: 500px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
     .hero-metrics {
       display: flex;
-      gap: 2.5rem;
-      margin-bottom: 2.5rem;
-      animation: fadeUp 0.6s 0.3s ease both;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
     }
-    .metric-item { text-align: left; }
+
+    .metric-item {
+      text-align: left;
+    }
+
     .metric-number {
       font-family: var(--font-head);
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       font-weight: 800;
       color: var(--blue-light);
       letter-spacing: -0.03em;
     }
+
     .metric-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
       letter-spacing: 0.02em;
     }
@@ -256,153 +290,195 @@
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      animation: fadeUp 0.6s 0.4s ease both;
     }
+
     .btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       background: var(--blue);
       color: white;
-      padding: 0.9rem 2rem;
+      padding: 0.8rem 1.8rem;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       transition: all 0.3s;
       border: 1px solid transparent;
       cursor: pointer;
     }
+
     .btn-primary:hover {
       background: #1d4ed8;
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(37,99,235,0.35);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
     }
+
     .btn-ghost {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       background: transparent;
       color: var(--text-body);
-      padding: 0.9rem 2rem;
+      padding: 0.8rem 1.8rem;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       transition: all 0.3s;
       border: 1px solid var(--border);
       cursor: pointer;
     }
-    .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+
+    .btn-ghost:hover {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
 
     .hero-visual {
       flex: 1;
-      animation: fadeUp 0.7s 0.2s ease both;
     }
+
     .hero-dashboard-card {
       background: var(--ink-2);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
     }
+
     .dashboard-bar {
       background: var(--ink-3);
-      padding: 0.8rem 1.2rem;
+      padding: 0.7rem 1rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
       border-bottom: 1px solid var(--border);
     }
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
     .dot-red { background: #ff5f57; }
     .dot-yellow { background: #febc2e; }
     .dot-green { background: #28c840; }
+
     .dashboard-bar span {
       margin-left: auto;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
-      font-family: var(--font-body);
     }
-    .dashboard-img {
-      width: 100%;
-      display: block;
-    }
+
     .dashboard-img img {
       width: 100%;
       display: block;
-      object-fit: cover;
     }
 
-    /* ── TICKER BAR ── */
+    /* Ticker */
     .ticker-bar {
       background: var(--ink-2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 0.9rem 0;
+      padding: 0.7rem 0;
       overflow: hidden;
     }
+
     .ticker-track {
       display: flex;
-      gap: 3rem;
+      gap: 2.5rem;
       animation: ticker 30s linear infinite;
       width: max-content;
     }
+
     .ticker-item {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
       white-space: nowrap;
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 500;
     }
-    .ticker-item i { color: var(--blue-light); font-size: 0.8rem; }
-    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* ── SECTION BASE ── */
-    section { padding: 6rem 0; }
+    .ticker-item i {
+      color: var(--blue-light);
+      font-size: 0.75rem;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 0;
+    }
+
     .section-label {
       display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.8rem;
     }
+
     .section-title {
       font-family: var(--font-head);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
       font-weight: 800;
       letter-spacing: -0.03em;
-      line-height: 1.15;
+      line-height: 1.2;
       margin-bottom: 1rem;
+      max-width: 700px;
     }
+
     .section-sub {
       color: var(--text-body);
       max-width: 600px;
-      font-size: 1.05rem;
-      line-height: 1.7;
+      font-size: 1rem;
+      line-height: 1.6;
     }
-    .text-center { text-align: center; }
-    .text-center .section-sub { margin: 0 auto; }
 
-    /* ── PLATFORMS (existing cards) ── */
-    .platforms { background: var(--ink); }
+    .text-center {
+      text-align: center;
+    }
+
+    .text-center .section-title {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .text-center .section-sub {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Platforms Grid */
+    .platforms {
+      background: var(--ink);
+    }
+
     .platforms-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      margin-top: 3.5rem;
+      margin-top: 3rem;
     }
+
     .platform-card {
       background: var(--ink-2);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 2rem;
+      padding: 1.8rem;
       transition: all 0.35s ease;
       position: relative;
       overflow: hidden;
     }
+
     .platform-card::before {
       content: '';
       position: absolute;
@@ -411,30 +487,44 @@
       opacity: 0;
       transition: opacity 0.35s;
     }
-    .platform-card:hover { border-color: rgba(59,130,246,0.35); transform: translateY(-6px); }
-    .platform-card:hover::before { opacity: 1; }
-    .platform-card.featured { border-color: rgba(0,217,184,0.25); }
-    .platform-card.featured::before { background: linear-gradient(135deg, var(--accent-dim), transparent); opacity: 1; }
-    .platform-card.coming-soon { opacity: 0.75; }
+
+    .platform-card:hover {
+      border-color: rgba(59, 130, 246, 0.35);
+      transform: translateY(-5px);
+    }
+
+    .platform-card:hover::before {
+      opacity: 1;
+    }
+
+    .platform-card.featured {
+      border-color: rgba(0, 217, 184, 0.25);
+    }
+
+    .platform-card.featured::before {
+      background: linear-gradient(135deg, var(--accent-dim), transparent);
+      opacity: 1;
+    }
 
     .platform-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.25rem;
-      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+      font-size: 1.3rem;
       position: relative;
     }
-    .icon-blue { background: rgba(37,99,235,0.15); color: var(--blue-light); }
+
+    .icon-blue { background: rgba(37, 99, 235, 0.15); color: var(--blue-light); }
     .icon-teal { background: var(--accent-dim); color: var(--accent); }
-    .icon-amber { background: rgba(245,158,11,0.12); color: #f59e0b; }
-    .icon-purple { background: rgba(139,92,246,0.12); color: #8b5cf6; }
-    .icon-coral { background: rgba(239,68,68,0.1); color: #ef4444; }
-    .icon-green { background: rgba(16,185,129,0.1); color: #10b981; }
-    .icon-sky { background: rgba(14,165,233,0.12); color: #0ea5e9; }
+    .icon-amber { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
+    .icon-purple { background: rgba(139, 92, 246, 0.12); color: #8b5cf6; }
+    .icon-coral { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+    .icon-green { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+    .icon-sky { background: rgba(14, 165, 233, 0.12); color: #0ea5e9; }
 
     .platform-badge {
       position: absolute;
@@ -442,267 +532,364 @@
       right: -4px;
       background: var(--accent);
       color: var(--ink);
-      font-size: 0.6rem;
+      font-size: 0.55rem;
       font-weight: 800;
-      padding: 0.15rem 0.5rem;
+      padding: 0.15rem 0.45rem;
       border-radius: 20px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
+
     .coming-badge {
-      background: rgba(245,158,11,0.2);
+      background: rgba(245, 158, 11, 0.2);
       color: #f59e0b;
-      border: 1px solid rgba(245,158,11,0.3);
+      border: 1px solid rgba(245, 158, 11, 0.3);
     }
 
     .platform-card h3 {
       font-family: var(--font-head);
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
       letter-spacing: -0.02em;
     }
+
     .platform-card p {
       color: var(--text-body);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       line-height: 1.6;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
+
     .platform-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
+
     .platform-tags span {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
       color: var(--text-muted);
-      padding: 0.25rem 0.7rem;
+      padding: 0.2rem 0.6rem;
       border-radius: 20px;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 500;
     }
-    .platform-links { display: flex; gap: 1rem; align-items: center; }
+
+    .platform-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
     .platform-links a {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: var(--blue-light);
       transition: color 0.2s;
       display: flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.25rem;
     }
-    .platform-links a:hover { color: var(--accent); }
-    .platform-links a.github { color: var(--text-muted); }
-    .platform-links a.github:hover { color: var(--white); }
 
-    /* ── NEW: SECTORS WE SERVE GRID ── */
+    .platform-links a:hover {
+      color: var(--accent);
+    }
+
+    .platform-links a.github {
+      color: var(--text-muted);
+    }
+
+    .platform-links a.github:hover {
+      color: var(--white);
+    }
+
+    /* Sectors Grid */
     .sectors {
       background: var(--ink-2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
+
     .sectors-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1.25rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
     }
+
     .sector-card {
       background: var(--ink);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 1.2rem;
+      padding: 1rem 0.8rem;
       text-align: center;
       transition: all 0.25s;
     }
-    .sector-card:hover { border-color: rgba(59,130,246,0.4); transform: translateY(-3px); }
-    .sector-icon {
-      font-size: 1.8rem;
-      margin-bottom: 0.75rem;
+
+    .sector-card:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+      transform: translateY(-3px);
     }
+
+    .sector-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
     .sector-card h4 {
       font-family: var(--font-head);
-      font-size: 1rem;
+      font-size: 0.85rem;
       font-weight: 700;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
+
     .sector-status {
-      font-size: 0.7rem;
-      font-weight: 600;
+      font-size: 0.65rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-top: 0.5rem;
+      margin-top: 0.4rem;
     }
-    .status-live { color: var(--accent); }
-    .status-demo { color: #f59e0b; }
-    .status-roadmap { color: var(--text-muted); }
 
-    /* ── SERVICES ── */
-    .services { background: var(--ink-2); }
+    .status-live {
+      color: var(--accent);
+    }
+
+    .status-demo {
+      color: #f59e0b;
+    }
+
+    .status-roadmap {
+      color: var(--text-muted);
+    }
+
+    /* Zim Edge */
+    .zim-edge {
+      background: linear-gradient(135deg, var(--ink-2), var(--ink-3));
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 0;
+    }
+
+    .zim-edge .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .zim-edge h2 {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .zim-edge p {
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .zim-checklist {
+      list-style: none;
+      margin-top: 1.2rem;
+    }
+
+    .zim-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-body);
+      font-size: 0.85rem;
+    }
+
+    .zim-checklist li i {
+      color: var(--accent);
+      margin-top: 0.1rem;
+      flex-shrink: 0;
+      font-size: 0.8rem;
+    }
+
+    .zim-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .zim-stat {
+      background: var(--ink);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.2rem;
+    }
+
+    .zim-stat .num {
+      font-family: var(--font-head);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+    }
+
+    .zim-stat .lbl {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* Services */
+    .services {
+      background: var(--ink-2);
+    }
+
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
-      margin-top: 3.5rem;
+      margin-top: 3rem;
     }
+
     .service-card {
       background: var(--ink);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 2rem;
+      padding: 1.6rem;
       transition: all 0.3s;
     }
-    .service-card:hover { border-color: rgba(59,130,246,0.3); transform: translateY(-4px); }
+
+    .service-card:hover {
+      border-color: rgba(59, 130, 246, 0.3);
+      transform: translateY(-4px);
+    }
+
     .service-card .service-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
       background: var(--blue-glow);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--blue-light);
-      font-size: 1.2rem;
-      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
     }
+
     .service-card h3 {
       font-family: var(--font-head);
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
       letter-spacing: -0.02em;
     }
-    .service-card p { color: var(--text-body); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.2rem; }
-    .tech-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .service-card p {
+      color: var(--text-body);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
     .tech-pills span {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
       color: var(--text-muted);
-      padding: 0.2rem 0.7rem;
+      padding: 0.2rem 0.6rem;
       border-radius: 20px;
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       font-weight: 500;
     }
 
-    /* ── ZIM EDGE BANNER (unchanged) ── */
-    .zim-edge {
-      background: linear-gradient(135deg, var(--ink-2), var(--ink-3));
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 5rem 0;
-    }
-    .zim-edge .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .zim-edge h2 {
-      font-family: var(--font-head);
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.25rem;
-      line-height: 1.15;
-    }
-    .zim-edge p { color: var(--text-body); line-height: 1.75; margin-bottom: 1rem; }
-    .zim-checklist { list-style: none; margin-top: 1.5rem; }
-    .zim-checklist li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      margin-bottom: 0.9rem;
-      color: var(--text-body);
-      font-size: 0.95rem;
-    }
-    .zim-checklist li i { color: var(--accent); margin-top: 0.15rem; flex-shrink: 0; }
-    .zim-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .zim-stat {
+    /* Process */
+    .process {
       background: var(--ink);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 1.5rem;
     }
-    .zim-stat .num {
-      font-family: var(--font-head);
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--accent);
-      letter-spacing: -0.03em;
-    }
-    .zim-stat .lbl { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; }
 
-    /* ── PROCESS (unchanged) ── */
-    .process { background: var(--ink); }
     .process-steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0;
-      margin-top: 3.5rem;
-      position: relative;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
     }
-    .process-steps::before {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: 10%;
-      right: 10%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
+
+    .process-step {
+      text-align: center;
     }
-    .process-step { text-align: center; padding: 0 1rem; position: relative; }
+
     .step-num {
-      width: 56px;
-      height: 56px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       background: var(--ink-2);
       border: 1px solid var(--blue);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 1.2rem;
       font-family: var(--font-head);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 800;
       color: var(--blue-light);
-      position: relative;
-      z-index: 2;
     }
+
     .process-step h3 {
       font-family: var(--font-head);
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
-    .process-step p { color: var(--text-body); font-size: 0.88rem; line-height: 1.6; }
 
-    /* ── PRICING (unchanged) ── */
-    .pricing { background: var(--ink-2); }
+    .process-step p {
+      color: var(--text-body);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    /* Pricing */
+    .pricing {
+      background: var(--ink-2);
+    }
+
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
-      margin-top: 3rem;
+      margin-top: 2.5rem;
     }
+
     .pricing-card {
       background: var(--ink);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 2.5rem 2rem;
+      padding: 2rem 1.5rem;
       transition: all 0.3s;
       position: relative;
     }
-    .pricing-card:hover { transform: translateY(-4px); border-color: rgba(59,130,246,0.3); }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
     .pricing-card.popular {
       border-color: var(--blue);
-      background: linear-gradient(160deg, rgba(37,99,235,0.08), var(--ink));
+      background: linear-gradient(160deg, rgba(37, 99, 235, 0.08), var(--ink));
     }
+
     .popular-badge {
       position: absolute;
       top: -12px;
@@ -710,74 +897,108 @@
       transform: translateX(-50%);
       background: var(--blue);
       color: white;
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       font-weight: 700;
-      padding: 0.3rem 1rem;
+      padding: 0.25rem 0.9rem;
       border-radius: 20px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       white-space: nowrap;
     }
+
     .pricing-card h3 {
       font-family: var(--font-head);
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
     }
+
     .price {
       font-family: var(--font-head);
-      font-size: 2rem;
+      font-size: 1.7rem;
       font-weight: 800;
       color: var(--blue-light);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
       letter-spacing: -0.03em;
     }
-    .price small { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); font-family: var(--font-body); }
-    .price-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
-    .pricing-card ul { list-style: none; margin-bottom: 2rem; }
+
+    .price small {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .price-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
     .pricing-card li {
-      padding: 0.55rem 0;
+      padding: 0.45rem 0;
       border-bottom: 1px solid var(--border);
       color: var(--text-body);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
-    .pricing-card li:last-child { border-bottom: none; }
-    .pricing-card li i { color: var(--accent); font-size: 0.8rem; flex-shrink: 0; }
+
+    .pricing-card li:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-card li i {
+      color: var(--accent);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
     .btn-secondary {
       display: block;
       text-align: center;
       background: transparent;
       color: var(--blue-light);
-      padding: 0.8rem 2rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       border: 1px solid var(--blue);
       transition: all 0.3s;
     }
-    .btn-secondary:hover { background: var(--blue); color: white; }
+
+    .btn-secondary:hover {
+      background: var(--blue);
+      color: white;
+    }
+
     .btn-primary-full {
       display: block;
       text-align: center;
       background: var(--blue);
       color: white;
-      padding: 0.8rem 2rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 0.9rem;
-      border: 1px solid transparent;
+      font-size: 0.85rem;
       transition: all 0.3s;
     }
-    .btn-primary-full:hover { background: #1d4ed8; }
+
+    .btn-primary-full:hover {
+      background: #1d4ed8;
+    }
 
     .pricing-divider {
       text-align: center;
-      margin: 3rem 0 1.5rem;
+      margin: 2.5rem 0 1.5rem;
       position: relative;
     }
+
     .pricing-divider::before {
       content: '';
       position: absolute;
@@ -787,31 +1008,40 @@
       height: 1px;
       background: var(--border);
     }
+
     .pricing-divider span {
       position: relative;
       background: var(--ink-2);
-      padding: 0 1.5rem;
+      padding: 0 1.2rem;
       font-family: var(--font-head);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--text-muted);
     }
 
-    /* ── FOUNDER ── */
-    .founder { background: var(--ink); }
+    /* Founder */
+    .founder {
+      background: var(--ink);
+    }
+
     .founder .container {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
-      gap: 5rem;
+      gap: 4rem;
       align-items: center;
     }
-    .founder-img-wrap { position: relative; }
+
+    .founder-img-wrap {
+      position: relative;
+    }
+
     .founder-img-wrap img {
       width: 100%;
       border-radius: var(--radius);
       display: block;
       filter: grayscale(20%);
     }
+
     .founder-img-wrap::after {
       content: '';
       position: absolute;
@@ -821,38 +1051,50 @@
       z-index: -1;
       opacity: 0.5;
     }
+
     .founder-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       color: var(--blue-light);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
+
     .founder-content h2 {
       font-family: var(--font-head);
-      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
       font-weight: 800;
       letter-spacing: -0.03em;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
+
     .founder-title {
       color: var(--accent);
       font-weight: 600;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.9rem;
     }
-    .founder-content p { color: var(--text-body); line-height: 1.75; margin-bottom: 1rem; font-size: 0.95rem; }
+
+    .founder-content p {
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+    }
+
     .founder-social {
       display: flex;
-      gap: 0.75rem;
-      margin-top: 2rem;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
     }
+
     .founder-social a {
-      width: 42px;
-      height: 42px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background: var(--ink-2);
       border: 1px solid var(--border);
@@ -860,107 +1102,166 @@
       align-items: center;
       justify-content: center;
       color: var(--text-muted);
-      font-size: 1rem;
+      font-size: 0.9rem;
       transition: all 0.3s;
     }
-    .founder-social a:hover { background: var(--blue); color: white; border-color: var(--blue); }
 
-    /* ── BLOG ── */
-    .blog { background: var(--ink-2); }
+    .founder-social a:hover {
+      background: var(--blue);
+      color: white;
+      border-color: var(--blue);
+    }
+
+    /* Blog */
+    .blog {
+      background: var(--ink-2);
+    }
+
     .blog-card {
       background: var(--ink);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 2.5rem;
-      max-width: 780px;
-      margin: 3rem auto 0;
+      padding: 2rem;
+      max-width: 700px;
+      margin: 2.5rem auto 0;
       transition: all 0.3s;
     }
-    .blog-card:hover { border-color: rgba(59,130,246,0.3); }
+
+    .blog-card:hover {
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
     .blog-tag {
       display: inline-block;
       background: var(--blue);
       color: white;
-      padding: 0.3rem 0.9rem;
+      padding: 0.25rem 0.8rem;
       border-radius: 20px;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
+
     .blog-card h3 {
       font-family: var(--font-head);
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: 800;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
       letter-spacing: -0.03em;
       line-height: 1.2;
     }
-    .blog-card p { color: var(--text-body); line-height: 1.7; margin-bottom: 1.5rem; }
+
+    .blog-card p {
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      font-size: 0.9rem;
+    }
+
     .blog-meta {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
       flex-wrap: wrap;
     }
-    .blog-meta span { color: var(--text-muted); font-size: 0.85rem; }
 
-    /* ── TOOLS ── */
-    .tools { background: var(--ink); padding: 3.5rem 0; border-top: 1px solid var(--border); }
+    .blog-meta span {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* Tools */
+    .tools {
+      background: var(--ink);
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+    }
+
     .tools-label {
       text-align: center;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
+
     .tools-row {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 0.8rem;
     }
+
     .tool-pill {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
       background: var(--ink-2);
       border: 1px solid var(--border);
-      padding: 0.6rem 1.2rem;
+      padding: 0.5rem 1rem;
       border-radius: 40px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 500;
       color: var(--text-body);
       transition: all 0.2s;
     }
-    .tool-pill:hover { border-color: rgba(59,130,246,0.3); color: var(--white); }
-    .tool-pill i { color: var(--blue-light); font-size: 1rem; }
 
-    /* ── CONTACT ── */
-    .contact { background: var(--ink-2); }
-    .contact .container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .tool-pill:hover {
+      border-color: rgba(59, 130, 246, 0.3);
+      color: var(--white);
+    }
+
+    .tool-pill i {
+      color: var(--blue-light);
+      font-size: 0.9rem;
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--ink-2);
+    }
+
+    .contact .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
     .contact-info h2 {
       font-family: var(--font-head);
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 800;
       letter-spacing: -0.03em;
-      margin-bottom: 1rem;
-      line-height: 1.15;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
     }
-    .contact-info > p { color: var(--text-body); margin-bottom: 2rem; line-height: 1.7; }
-    .contact-details { list-style: none; }
+
+    .contact-info>p {
+      color: var(--text-body);
+      margin-bottom: 1.8rem;
+      line-height: 1.7;
+      font-size: 0.9rem;
+    }
+
+    .contact-details {
+      list-style: none;
+    }
+
     .contact-details li {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.2rem;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
     }
+
     .contact-icon {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: var(--ink-3);
       border: 1px solid var(--border);
@@ -968,130 +1269,268 @@
       align-items: center;
       justify-content: center;
       color: var(--blue-light);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       flex-shrink: 0;
     }
-    .contact-details a { color: var(--text-body); font-size: 0.9rem; transition: color 0.2s; }
-    .contact-details a:hover { color: var(--white); }
+
+    .contact-details a {
+      color: var(--text-body);
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .contact-details a:hover {
+      color: var(--white);
+    }
+
     .contact-form {
       background: var(--ink);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 2.5rem;
+      padding: 2rem;
     }
-    .form-group { margin-bottom: 1.2rem; }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
     .form-group input,
     .form-group textarea,
     .form-group select {
       width: 100%;
-      padding: 0.9rem 1.1rem;
+      padding: 0.8rem 1rem;
       background: var(--ink-2);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       color: var(--white);
       font-family: var(--font-body);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       transition: border-color 0.2s;
     }
+
     .form-group input::placeholder,
-    .form-group textarea::placeholder { color: var(--text-muted); }
+    .form-group textarea::placeholder {
+      color: var(--text-muted);
+    }
+
     .form-group input:focus,
     .form-group textarea:focus,
-    .form-group select:focus { outline: none; border-color: var(--blue); }
-    .form-group textarea { min-height: 120px; resize: vertical; }
-    .form-group select { color: var(--text-muted); }
-    .form-group select option { background: var(--ink-2); }
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-group select {
+      color: var(--text-muted);
+    }
+
+    .form-group select option {
+      background: var(--ink-2);
+    }
+
     .btn-submit {
       width: 100%;
-      padding: 1rem;
+      padding: 0.9rem;
       background: var(--blue);
       color: white;
       border: none;
       border-radius: 50px;
       font-family: var(--font-body);
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: all 0.3s;
     }
-    .btn-submit:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(37,99,235,0.35); }
 
-    /* ── FOOTER ── */
+    .btn-submit:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+    }
+
+    /* Footer */
     .footer {
       background: var(--ink);
       border-top: 1px solid var(--border);
-      padding: 3rem 0;
+      padding: 2.5rem 0;
     }
+
     .footer .container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
-    .footer-logo { display: flex; align-items: center; gap: 0.75rem; }
-    .footer-logo img { height: 36px; }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .footer-logo img {
+      height: 32px;
+    }
+
     .footer-links {
       display: flex;
-      gap: 2rem;
+      gap: 1.8rem;
       flex-wrap: wrap;
       justify-content: center;
     }
-    .footer-links a { color: var(--text-muted); font-size: 0.88rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--white); }
-    .footer-social { display: flex; gap: 1.2rem; }
-    .footer-social a { color: var(--text-muted); font-size: 1.1rem; transition: color 0.2s; }
-    .footer-social a:hover { color: var(--blue-light); }
-    .footer-bottom { color: var(--text-muted); font-size: 0.82rem; text-align: center; }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      transition: color 0.2s;
     }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social a {
+      color: var(--text-muted);
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover {
+      color: var(--blue-light);
+    }
+
+    .footer-bottom {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-align: center;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .fade-up {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── RESPONSIVE ── */
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
     @media (max-width: 900px) {
+
       .hero .container,
       .zim-edge .container,
       .founder .container,
-      .contact .container { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-visual { display: none; }
+      .contact .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
       .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 70px;
+        top: 65px;
         left: 0;
         width: 100%;
-        background: rgba(8,9,13,0.97);
+        background: rgba(8, 9, 13, 0.97);
         backdrop-filter: blur(16px);
-        padding: 2rem;
-        gap: 1.5rem;
+        padding: 1.5rem;
+        gap: 1.2rem;
         align-items: center;
         border-bottom: 1px solid var(--border);
       }
-      .nav-links.active { display: flex; }
-      .menu-toggle { display: block; }
-      .nav-cta { display: none; }
-      .process-steps::before { display: none; }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .sectors-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-steps {
+        gap: 1.5rem;
+      }
     }
+
     @media (max-width: 600px) {
-      .hero-metrics { gap: 1.5rem; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .zim-stats { grid-template-columns: 1fr 1fr; }
-      .sectors-grid { grid-template-columns: repeat(2, 1fr); }
+      .container {
+        padding: 0 1.2rem;
+      }
+
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .hero-metrics {
+        gap: 1.2rem;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sectors-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .platforms-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR (unchanged) -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <div class="logo-area">
@@ -1111,19 +1550,33 @@
     </div>
   </nav>
 
-  <!-- HERO (unchanged) -->
   <section id="home" class="hero">
     <div class="hero-glow-1"></div>
     <div class="hero-glow-2"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow"><i class="fas fa-globe-africa"></i> Built in Harare · Ready for Africa</div>
-        <h1>Africa's Sector<br><span class="hero-highlight">Intelligence</span><br><span class="hero-accent">Platform.</span></h1>
-        <p>We build the data intelligence layer that African businesses have never had — for retail, agriculture, mining, health, logistics, manufacturing, energy, education and FinTech. Deployed in weeks, not months.</p>
+        <div class="hero-eyebrow">
+          <i class="fas fa-globe-africa"></i> Built in Harare · Ready for Africa
+        </div>
+        <h1>
+          Africa's Sector<br>
+          <span class="hero-highlight">Intelligence</span><br>
+          <span class="hero-accent">Platform.</span>
+        </h1>
+        <p>We build the data intelligence layer that African businesses have never had — for retail, agriculture, mining, health, logistics, manufacturing, energy, education and FinTech. Deployed in weeks.</p>
         <div class="hero-metrics">
-          <div class="metric-item"><div class="metric-number">10+</div><div class="metric-label">Sectors targeted</div></div>
-          <div class="metric-item"><div class="metric-number">6</div><div class="metric-label">Live platforms</div></div>
-          <div class="metric-item"><div class="metric-number">1M+</div><div class="metric-label">Data points processed</div></div>
+          <div class="metric-item">
+            <div class="metric-number">10+</div>
+            <div class="metric-label">Sectors targeted</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">6</div>
+            <div class="metric-label">Live platforms</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">1M+</div>
+            <div class="metric-label">Data points processed</div>
+          </div>
         </div>
         <div class="hero-ctas">
           <a href="#contact" class="btn-primary">Book a Strategy Call <i class="fas fa-arrow-right"></i></a>
@@ -1132,14 +1585,20 @@
       </div>
       <div class="hero-visual">
         <div class="hero-dashboard-card">
-          <div class="dashboard-bar"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span><span>ZimRetail IQ · Live Dashboard</span></div>
-          <div class="dashboard-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ZimRetail IQ Dashboard" loading="lazy"></div>
+          <div class="dashboard-bar">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+            <span>ZimRetail IQ · Live Dashboard</span>
+          </div>
+          <div class="dashboard-img">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dashboard" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TICKER BAR (updated with all sectors) -->
   <div class="ticker-bar">
     <div class="ticker-track">
       <div class="ticker-item"><i class="fas fa-check-circle"></i> Zimbabwe-built intelligence platforms</div>
@@ -1148,7 +1607,6 @@
       <div class="ticker-item"><i class="fas fa-bolt"></i> Retail · Agri · Mining · Health · Logistics · Manufacturing · Energy · Education · FinTech</div>
       <div class="ticker-item"><i class="fas fa-chart-line"></i> SAP doesn't know Zimbabwe. We do.</div>
       <div class="ticker-item"><i class="fas fa-shield-alt"></i> Africa's first sector intelligence company</div>
-      <!-- Duplicate for loop -->
       <div class="ticker-item"><i class="fas fa-check-circle"></i> Zimbabwe-built intelligence platforms</div>
       <div class="ticker-item"><i class="fas fa-database"></i> Local data: TIMB · GMB · ZSE · COTTCO · ZIMRA</div>
       <div class="ticker-item"><i class="fas fa-globe"></i> Serving clients globally, rooted in Harare</div>
@@ -1158,7 +1616,6 @@
     </div>
   </div>
 
-  <!-- PLATFORMS (existing cards, unchanged) -->
   <section id="platforms" class="platforms">
     <div class="container">
       <div class="fade-up">
@@ -1167,18 +1624,88 @@
         <p class="section-sub">Real platforms you can interact with today. Global BI tools have zero knowledge of TIMB, GMB, COTTCO, or ZWG dynamics. We built what they couldn't.</p>
       </div>
       <div class="platforms-grid">
-        <div class="platform-card featured fade-up"><div class="platform-icon icon-teal"><i class="fas fa-store"></i><span class="platform-badge">Live</span></div><h3>ZimRetail IQ</h3><p>17-module retail intelligence platform for Zimbabwe's retail sector. Real-time sales tracking, inventory visibility, ZIMRA compliance, ZWL/USD reconciliation.</p><div class="platform-tags"><span>Plotly Dash</span><span>Python</span><span>Railway</span></div><div class="platform-links"><a href="https://web-production-474c8.up.railway.app" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="https://github.com/Iceyma02/Zimbabwe-Retail-Intelligence-System" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a></div></div>
-        <div class="platform-card featured fade-up"><div class="platform-icon icon-green"><i class="fas fa-tractor"></i><span class="platform-badge">Live</span></div><h3>AgriIQ</h3><p>Zimbabwe agriculture intelligence dashboard covering TIMB, GMB, COTTCO, Hippo Valley. Crop yields, pricing trends, provincial mapping, input cost tracking.</p><div class="platform-tags"><span>Plotly Dash</span><span>GIS</span><span>Railway</span></div><div class="platform-links"><a href="https://web-production-c8185.up.railway.app" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="https://github.com/Iceyma02/Agriculture-Intelligence-Platform" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a></div></div>
-        <div class="platform-card fade-up"><div class="platform-icon icon-amber"><i class="fas fa-bread-slice"></i><span class="platform-badge coming-badge">In Development</span></div><h3>ProtonIQ</h3><p>17-module FMCG intelligence system for Proton Bakers Zimbabwe. Production output, depot intelligence, fleet performance, retailer analytics, SKU performance.</p><div class="platform-tags"><span>Plotly Dash</span><span>XGBoost</span><span>FMCG</span></div><div class="platform-links"><a href="#contact" style="color: #f59e0b;"><i class="fas fa-clock"></i> Coming Soon</a></div></div>
-        <div class="platform-card fade-up"><div class="platform-icon icon-purple"><i class="fas fa-hard-hat"></i><span class="platform-badge">Live</span></div><h3>Mining Production Dashboard</h3><p>Enterprise-grade analytics tracking OEE, MTBF, cost per ton. Predictive maintenance for Zimplats-scale operations.</p><div class="platform-tags"><span>Streamlit</span><span>Predictive ML</span></div><div class="platform-links"><a href="https://tbzampbika8tfdb7ut3jdr.streamlit.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a></div></div>
-        <div class="platform-card fade-up"><div class="platform-icon icon-blue"><i class="fas fa-truck"></i><span class="platform-badge">Live</span></div><h3>Supply Chain Optimizer</h3><p>Inventory tracking, depot performance, delivery route efficiency. XGBoost delay prediction.</p><div class="platform-tags"><span>Plotly Dash</span><span>XGBoost</span><span>Logistics</span></div><div class="platform-links"><a href="https://supply-chain-optimization-dashboard.onrender.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="https://github.com/Iceyma02/supply-chain-optimizer" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a></div></div>
-        <div class="platform-card fade-up"><div class="platform-icon icon-coral"><i class="fas fa-chart-line"></i><span class="platform-badge">Live</span></div><h3>Stock Market Forecasting</h3><p>Real-time stock data pipeline with 7–90 day price forecasts using ML time series models.</p><div class="platform-tags"><span>Python</span><span>yfinance</span><span>Time Series</span></div><div class="platform-links"><a href="https://3z45tljebjsrl4vbm67ji6.streamlit.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a></div></div>
+        <div class="platform-card featured fade-up">
+          <div class="platform-icon icon-teal">
+            <i class="fas fa-store"></i>
+            <span class="platform-badge">Live</span>
+          </div>
+          <h3>ZimRetail IQ</h3>
+          <p>17-module retail intelligence platform for Zimbabwe's retail sector. Real-time sales tracking, inventory visibility, ZIMRA compliance, ZWL/USD reconciliation.</p>
+          <div class="platform-tags"><span>Plotly Dash</span><span>Python</span><span>Railway</span></div>
+          <div class="platform-links">
+            <a href="https://web-production-474c8.up.railway.app" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/Iceyma02/Zimbabwe-Retail-Intelligence-System" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="platform-card featured fade-up">
+          <div class="platform-icon icon-green">
+            <i class="fas fa-tractor"></i>
+            <span class="platform-badge">Live</span>
+          </div>
+          <h3>AgriIQ</h3>
+          <p>Zimbabwe agriculture intelligence dashboard covering TIMB, GMB, COTTCO, Hippo Valley. Crop yields, pricing trends, provincial mapping, input cost tracking.</p>
+          <div class="platform-tags"><span>Plotly Dash</span><span>GIS</span><span>Railway</span></div>
+          <div class="platform-links">
+            <a href="https://web-production-c8185.up.railway.app" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/Iceyma02/Agriculture-Intelligence-Platform" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="platform-card fade-up">
+          <div class="platform-icon icon-amber">
+            <i class="fas fa-bread-slice"></i>
+            <span class="platform-badge coming-badge">In Development</span>
+          </div>
+          <h3>ProtonIQ</h3>
+          <p>17-module FMCG intelligence system for Proton Bakers Zimbabwe. Production output, depot intelligence, fleet performance, retailer analytics, SKU performance.</p>
+          <div class="platform-tags"><span>Plotly Dash</span><span>XGBoost</span><span>FMCG</span></div>
+          <div class="platform-links">
+            <a href="#contact" style="color: #f59e0b;"><i class="fas fa-clock"></i> Coming Soon</a>
+          </div>
+        </div>
+        <div class="platform-card fade-up">
+          <div class="platform-icon icon-purple">
+            <i class="fas fa-hard-hat"></i>
+            <span class="platform-badge">Live</span>
+          </div>
+          <h3>Mining Production Dashboard</h3>
+          <p>Enterprise-grade analytics tracking OEE, MTBF, cost per ton. Predictive maintenance for Zimplats-scale operations.</p>
+          <div class="platform-tags"><span>Streamlit</span><span>Predictive ML</span></div>
+          <div class="platform-links">
+            <a href="https://tbzampbika8tfdb7ut3jdr.streamlit.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+        <div class="platform-card fade-up">
+          <div class="platform-icon icon-blue">
+            <i class="fas fa-truck"></i>
+            <span class="platform-badge">Live</span>
+          </div>
+          <h3>Supply Chain Optimizer</h3>
+          <p>Inventory tracking, depot performance, delivery route efficiency. XGBoost delay prediction for logistics operations.</p>
+          <div class="platform-tags"><span>Plotly Dash</span><span>XGBoost</span><span>Logistics</span></div>
+          <div class="platform-links">
+            <a href="https://supply-chain-optimization-dashboard.onrender.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/Iceyma02/supply-chain-optimizer" target="_blank" class="github"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="platform-card fade-up">
+          <div class="platform-icon icon-coral">
+            <i class="fas fa-chart-line"></i>
+            <span class="platform-badge">Live</span>
+          </div>
+          <h3>Stock Market Forecasting</h3>
+          <p>Real-time stock data pipeline with 7–90 day price forecasts using ML time series models.</p>
+          <div class="platform-tags"><span>Python</span><span>yfinance</span><span>Time Series</span></div>
+          <div class="platform-links">
+            <a href="https://3z45tljebjsrl4vbm67ji6.streamlit.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
       </div>
-      <p style="text-align:center;margin-top:2.5rem;"><a href="https://github.com/Iceyma02" target="_blank" style="color:var(--blue-light);font-weight:600;">View all projects on GitHub <i class="fas fa-arrow-right"></i></a></p>
+      <p style="text-align: center; margin-top: 2rem;">
+        <a href="https://github.com/Iceyma02" target="_blank" style="color: var(--blue-light); font-weight: 600; font-size: 0.85rem;">View all projects on GitHub <i class="fas fa-arrow-right"></i></a>
+      </p>
     </div>
   </section>
 
-  <!-- NEW: SECTORS WE SERVE (full ambition grid) -->
   <section class="sectors">
     <div class="container">
       <div class="text-center fade-up">
@@ -1189,7 +1716,7 @@
       <div class="sectors-grid">
         <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-store"></i></div><h4>Retail & FMCG</h4><div class="sector-status status-live">LIVE</div></div>
         <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-tractor"></i></div><h4>Agriculture</h4><div class="sector-status status-live">LIVE</div></div>
-        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-hard-hat"></i></div><h4>Mining</h4><div class="sector-status status-demo">DEMO READY</div></div>
+        <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-hard-hat"></i></div><h4>Mining</h4><div class="sector-status status-demo">DEMO</div></div>
         <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-truck"></i></div><h4>Logistics</h4><div class="sector-status status-live">LIVE</div></div>
         <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-hospital-user"></i></div><h4>Healthcare</h4><div class="sector-status status-roadmap">ROADMAP</div></div>
         <div class="sector-card fade-up"><div class="sector-icon"><i class="fas fa-industry"></i></div><h4>Manufacturing</h4><div class="sector-status status-roadmap">ROADMAP</div></div>
@@ -1200,7 +1727,6 @@
     </div>
   </section>
 
-  <!-- ZIM EDGE (copy updated to mention all sectors) -->
   <section class="zim-edge">
     <div class="container">
       <div class="fade-up">
@@ -1226,7 +1752,6 @@
     </div>
   </section>
 
-  <!-- SERVICES (added Healthcare and Manufacturing/Energy cards) -->
   <section id="services" class="services">
     <div class="container">
       <div class="text-center fade-up">
@@ -1239,79 +1764,242 @@
         <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-tractor"></i></div><h3>Agriculture Intelligence</h3><p>Crop yield tracking, pricing benchmarks, TIMB/GMB data integration, provincial mapping, commercial farm dashboards.</p><div class="tech-pills"><span>GIS</span><span>Plotly</span></div></div>
         <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-hard-hat"></i></div><h3>Mining Operations Dashboards</h3><p>OEE tracking, predictive maintenance, cost per ton, compliance reporting for Zimplats, Caledonia, mid-tier miners.</p><div class="tech-pills"><span>Streamlit</span><span>ML</span></div></div>
         <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-truck"></i></div><h3>Supply Chain & Logistics</h3><p>Depot performance, route optimisation, inventory tracking, delivery efficiency for national distribution and 3PL providers.</p><div class="tech-pills"><span>XGBoost</span><span>Plotly Dash</span></div></div>
-        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-hospital-user"></i></div><h3>Healthcare Analytics</h3><p>Patient flow, medicine expiry tracking, clinic performance dashboards, disease surveillance mapping. (Roadmap – first pilot ready Q3 2025)</p><div class="tech-pills"><span>GIS</span><span>Python</span><span>Coming Soon</span></div></div>
+        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-hospital-user"></i></div><h3>Healthcare Analytics</h3><p>Patient flow, medicine expiry tracking, clinic performance dashboards, disease surveillance mapping. (Roadmap – Q3 2025)</p><div class="tech-pills"><span>GIS</span><span>Python</span><span>Coming Soon</span></div></div>
         <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-industry"></i></div><h3>Manufacturing & Energy</h3><p>Production line OEE, energy consumption monitoring, quality control dashboards, predictive maintenance for factories and power utilities.</p><div class="tech-pills"><span>IoT Ready</span><span>ML</span><span>Roadmap</span></div></div>
         <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-chart-pie"></i></div><h3>FinTech & SaaS KPI Dashboards</h3><p>Real-time views of MRR, burn rate, runway, CAC, LTV, cohort analysis — built for fundraising and investor reporting.</p><div class="tech-pills"><span>Power BI</span><span>Streamlit</span></div></div>
-        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div><h3>Investor Reporting & Cap Table</h3><p>Automated investor reports, cap table management tools, unit economics calculators, board-ready dashboards.</p><div class="tech-pills"><span>Automation</span><span>Power BI</span></div></div>
+        <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div><h3>Investor Reporting & Cap Table</h3><p>Automated investor reports, cap table management, unit economics, board-ready dashboards.</p><div class="tech-pills"><span>Automation</span><span>Power BI</span></div></div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS (unchanged) -->
   <section class="process">
     <div class="container">
-      <div class="text-center fade-up"><span class="section-label">How We Work</span><h2 class="section-title">From raw data to live dashboard<br>in 1–2 weeks.</h2></div>
+      <div class="text-center fade-up">
+        <span class="section-label">How We Work</span>
+        <h2 class="section-title">From raw data to live dashboard<br>in 1–2 weeks.</h2>
+      </div>
       <div class="process-steps">
-        <div class="process-step fade-up"><div class="step-num">1</div><h3>Data Audit</h3><p>Review your data sources, identify gaps, define the KPIs that matter.</p></div>
-        <div class="process-step fade-up"><div class="step-num">2</div><h3>Intelligence Architecture</h3><p>Design a custom framework aligned with your sector and local context.</p></div>
-        <div class="process-step fade-up"><div class="step-num">3</div><h3>Platform Build</h3><p>Connect your data and build your interactive platform — deployed in 1–2 weeks.</p></div>
-        <div class="process-step fade-up"><div class="step-num">4</div><h3>Ongoing Partnership</h3><p>Stay on as your intelligence partner — updating, expanding, advising.</p></div>
+        <div class="process-step fade-up"><div class="step-num">1</div><h3>Data Audit</h3><p>Review your data sources, define the KPIs that matter.</p></div>
+        <div class="process-step fade-up"><div class="step-num">2</div><h3>Intelligence Architecture</h3><p>Design a custom framework aligned with your sector.</p></div>
+        <div class="process-step fade-up"><div class="step-num">3</div><h3>Platform Build</h3><p>Connect your data — deployed in 1–2 weeks.</p></div>
+        <div class="process-step fade-up"><div class="step-num">4</div><h3>Ongoing Partnership</h3><p>Stay on as your intelligence partner.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- PRICING (exact same as before, no change) -->
   <section id="pricing" class="pricing">
     <div class="container">
-      <div class="text-center fade-up"><span class="section-label">Pricing</span><h2 class="section-title">Predictable pricing.<br>Clear value.</h2><p class="section-sub">Fixed-price platform builds or monthly retainers. No surprises — just intelligence that pays for itself.</p></div>
-      <div class="pricing-grid" style="margin-top:3rem;">
-        <div class="pricing-card fade-up"><h3>Foundation</h3><div class="price">$800–$1.5k <small>fixed</small></div><p class="price-desc">For businesses starting their data journey.</p><ul><li><i class="fas fa-check"></i> Core intelligence dashboard (5–7 modules)</li><li><i class="fas fa-check"></i> Connect up to 3 data sources</li><li><i class="fas fa-check"></i> Local data integration (Zim context)</li><li><i class="fas fa-check"></i> 30-day post-launch support</li></ul><a href="#contact" class="btn-secondary">Get Started</a></div>
-        <div class="pricing-card popular fade-up"><span class="popular-badge">Most Popular</span><h3>Growth</h3><div class="price">$1.8k–$2.5k <small>fixed</small></div><p class="price-desc">For businesses ready to scale with data.</p><ul><li><i class="fas fa-check"></i> Everything in Foundation</li><li><i class="fas fa-check"></i> Advanced analytics & forecasting</li><li><i class="fas fa-check"></i> Investor-ready report templates</li><li><i class="fas fa-check"></i> ML-powered predictions</li><li><i class="fas fa-check"></i> 90-day support</li></ul><a href="#contact" class="btn-primary-full">Get Growth Plan</a></div>
-        <div class="pricing-card fade-up"><h3>Enterprise</h3><div class="price">$3k–$5k+ <small>custom</small></div><p class="price-desc">Full sector intelligence platform build.</p><ul><li><i class="fas fa-check"></i> Everything in Growth</li><li><i class="fas fa-check"></i> 17-module platform (ProtonIQ-scale)</li><li><i class="fas fa-check"></i> Custom tool development</li><li><i class="fas fa-check"></i> Executive command centre</li><li><i class="fas fa-check"></i> Strategic advisory & priority support</li></ul><a href="#contact" class="btn-secondary">Let's Talk</a></div>
+      <div class="text-center fade-up">
+        <span class="section-label">Pricing</span>
+        <h2 class="section-title">Predictable pricing.<br>Clear value.</h2>
+        <p class="section-sub">Fixed-price platform builds or monthly retainers. No surprises — just intelligence that pays for itself.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card fade-up">
+          <h3>Foundation</h3>
+          <div class="price">$800–$1.5k <small>fixed</small></div>
+          <p class="price-desc">For businesses starting their data journey.</p>
+          <ul><li><i class="fas fa-check"></i> Core intelligence dashboard (5–7 modules)</li><li><i class="fas fa-check"></i> Connect up to 3 data sources</li><li><i class="fas fa-check"></i> Local data integration</li><li><i class="fas fa-check"></i> 30-day post-launch support</li></ul>
+          <a href="#contact" class="btn-secondary">Get Started</a>
+        </div>
+        <div class="pricing-card popular fade-up">
+          <span class="popular-badge">Most Popular</span>
+          <h3>Growth</h3>
+          <div class="price">$1.8k–$2.5k <small>fixed</small></div>
+          <p class="price-desc">For businesses ready to scale with data.</p>
+          <ul><li><i class="fas fa-check"></i> Everything in Foundation</li><li><i class="fas fa-check"></i> Advanced analytics & forecasting</li><li><i class="fas fa-check"></i> Investor-ready reports</li><li><i class="fas fa-check"></i> ML-powered predictions</li><li><i class="fas fa-check"></i> 90-day support</li></ul>
+          <a href="#contact" class="btn-primary-full">Get Growth Plan</a>
+        </div>
+        <div class="pricing-card fade-up">
+          <h3>Enterprise</h3>
+          <div class="price">$3k–$5k+ <small>custom</small></div>
+          <p class="price-desc">Full sector intelligence platform.</p>
+          <ul><li><i class="fas fa-check"></i> Everything in Growth</li><li><i class="fas fa-check"></i> 17-module platform</li><li><i class="fas fa-check"></i> Custom tool development</li><li><i class="fas fa-check"></i> Executive command centre</li><li><i class="fas fa-check"></i> Strategic advisory</li></ul>
+          <a href="#contact" class="btn-secondary">Let's Talk</a>
+        </div>
       </div>
       <div class="pricing-divider fade-up"><span>Monthly Retainers</span></div>
       <div class="pricing-grid">
-        <div class="pricing-card fade-up"><h3>Essentials</h3><div class="price">$400–$600 <small>/mo</small></div><p class="price-desc">Keep your intelligence fresh.</p><ul><li><i class="fas fa-check"></i> Monthly dashboard updates</li><li><i class="fas fa-check"></i> Data source maintenance</li><li><i class="fas fa-check"></i> 5h ad-hoc support</li></ul><a href="#contact" class="btn-secondary">Get Essentials</a></div>
-        <div class="pricing-card popular fade-up"><span class="popular-badge">Most Popular</span><h3>Growth Retainer</h3><div class="price">$800–$1.2k <small>/mo</small></div><p class="price-desc">Your ongoing intelligence partner.</p><ul><li><i class="fas fa-check"></i> Weekly dashboard refreshes</li><li><i class="fas fa-check"></i> 10h ad-hoc support</li><li><i class="fas fa-check"></i> Monthly strategy call</li><li><i class="fas fa-check"></i> Investor update preparation</li></ul><a href="#contact" class="btn-primary-full">Get Growth Retainer</a></div>
-        <div class="pricing-card fade-up"><h3>Strategic Partner</h3><div class="price">$1.5k–$2k <small>/mo</small></div><p class="price-desc">Full intelligence partnership.</p><ul><li><i class="fas fa-check"></i> Unlimited support</li><li><i class="fas fa-check"></i> Weekly leadership meetings</li><li><i class="fas fa-check"></i> Board meeting preparation</li><li><i class="fas fa-check"></i> Custom tool enhancements</li></ul><a href="#contact" class="btn-secondary">Become a Partner</a></div>
+        <div class="pricing-card fade-up">
+          <h3>Essentials</h3>
+          <div class="price">$400–$600 <small>/mo</small></div>
+          <p class="price-desc">Keep your intelligence fresh.</p>
+          <ul><li><i class="fas fa-check"></i> Monthly dashboard updates</li><li><i class="fas fa-check"></i> Data source maintenance</li><li><i class="fas fa-check"></i> 5h ad-hoc support</li></ul>
+          <a href="#contact" class="btn-secondary">Get Essentials</a>
+        </div>
+        <div class="pricing-card popular fade-up">
+          <span class="popular-badge">Most Popular</span>
+          <h3>Growth Retainer</h3>
+          <div class="price">$800–$1.2k <small>/mo</small></div>
+          <p class="price-desc">Your ongoing intelligence partner.</p>
+          <ul><li><i class="fas fa-check"></i> Weekly dashboard refreshes</li><li><i class="fas fa-check"></i> 10h ad-hoc support</li><li><i class="fas fa-check"></i> Monthly strategy call</li><li><i class="fas fa-check"></i> Investor update prep</li></ul>
+          <a href="#contact" class="btn-primary-full">Get Growth Retainer</a>
+        </div>
+        <div class="pricing-card fade-up">
+          <h3>Strategic Partner</h3>
+          <div class="price">$1.5k–$2k <small>/mo</small></div>
+          <p class="price-desc">Full intelligence partnership.</p>
+          <ul><li><i class="fas fa-check"></i> Unlimited support</li><li><i class="fas fa-check"></i> Weekly leadership meetings</li><li><i class="fas fa-check"></i> Board meeting prep</li><li><i class="fas fa-check"></i> Custom enhancements</li></ul>
+          <a href="#contact" class="btn-secondary">Become a Partner</a>
+        </div>
       </div>
-      <p style="text-align:center;margin-top:2rem;color:var(--text-muted);font-size:0.85rem;">All packages include a complimentary 30-min discovery call. <a href="#contact" style="color:var(--blue-light);">Book yours →</a></p>
+      <p style="text-align: center; margin-top: 1.8rem; color: var(--text-muted); font-size: 0.8rem;">All packages include a complimentary 30-min discovery call. <a href="#contact" style="color: var(--blue-light);">Book yours →</a></p>
     </div>
   </section>
 
-  <!-- BLOG (unchanged) -->
   <section class="blog">
-    <div class="container"><div class="text-center fade-up"><span class="section-label">Latest Insights</span><h2 class="section-title">Practical intelligence<br>for data-driven leaders</h2></div>
-    <div class="blog-card fade-up"><span class="blog-tag">New Article</span><h3>The 7 SaaS KPIs Every Founder Must Track Before Their Series A</h3><p>A practical guide to the metrics investors will interrogate — and how to build a dashboard that makes them impossible to hide from.</p><div class="blog-meta"><a href="saas-kpis-series-a.html" class="btn-primary" style="padding:0.7rem 1.6rem;font-size:0.9rem;">Read Article <i class="fas fa-arrow-right"></i></a><span><i class="fas fa-clock"></i> 8 min read</span><span><i class="fas fa-user"></i> Anesu Manjengwa</span></div></div></div>
+    <div class="container">
+      <div class="text-center fade-up">
+        <span class="section-label">Latest Insights</span>
+        <h2 class="section-title">Practical intelligence<br>for data-driven leaders</h2>
+      </div>
+      <div class="blog-card fade-up">
+        <span class="blog-tag">New Article</span>
+        <h3>The 7 SaaS KPIs Every Founder Must Track Before Their Series A</h3>
+        <p>A practical guide to the metrics investors will interrogate — and how to build a dashboard that makes them impossible to hide from.</p>
+        <div class="blog-meta">
+          <a href="saas-kpis-series-a.html" class="btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">Read Article <i class="fas fa-arrow-right"></i></a>
+          <span><i class="fas fa-clock"></i> 8 min read</span>
+          <span><i class="fas fa-user"></i> Anesu Manjengwa</span>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- FOUNDER (unchanged) -->
   <section id="founder" class="founder">
-    <div class="container"><div class="founder-img-wrap fade-up"><img src="Image.jpg" alt="Anesu Manjengwa, Founder of MA TechHub" loading="lazy"></div>
-    <div class="founder-content fade-up"><div class="founder-eyebrow"><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</div><h2>Anesu Manjengwa</h2><p class="founder-title">Founder · Data Analyst · Platform Builder</p><p>Anesu Manjengwa is the founder of MA TechHub and the builder behind ZimRetail IQ, AgriIQ, ProtonIQ, and several other sector intelligence platforms designed specifically for African industry — with healthcare, manufacturing and energy in active roadmap.</p><p>His thesis is simple: African businesses are data-rich and insight-poor. Global platforms like SAP, Power BI, and Tableau have zero context for Zimbabwean business operations — so he built the alternative, from the ground up, with Harare at its core.</p><p>With a First Class with Distinction BCA and a relentless belief that everything follows a pattern, Anesu is building Africa's sector intelligence company — one platform at a time, across every major industry.</p><div class="founder-social"><a href="https://www.linkedin.com/in/anesu-manjengwa-684766247" target="_blank"><i class="fab fa-linkedin-in"></i></a><a href="https://github.com/Iceyma02" target="_blank"><i class="fab fa-github"></i></a><a href="https://www.instagram.com/m.a_tech_hub" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://wa.me/263789967365" target="_blank"><i class="fab fa-whatsapp"></i></a></div></div></div>
+    <div class="container">
+      <div class="founder-img-wrap fade-up">
+        <img src="Image.jpg" alt="Anesu Manjengwa, Founder" loading="lazy">
+      </div>
+      <div class="founder-content fade-up">
+        <div class="founder-eyebrow"><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</div>
+        <h2>Anesu Manjengwa</h2>
+        <p class="founder-title">Founder · Data Analyst · Platform Builder</p>
+        <p>Anesu Manjengwa is the founder of MA TechHub and the builder behind ZimRetail IQ, AgriIQ, ProtonIQ, and several other sector intelligence platforms designed specifically for African industry — with healthcare, manufacturing and energy in active roadmap.</p>
+        <p>His thesis is simple: African businesses are data-rich and insight-poor. Global platforms like SAP, Power BI, and Tableau have zero context for Zimbabwean business operations — so he built the alternative, from the ground up, with Harare at its core.</p>
+        <p>With a First Class with Distinction BCA and a relentless belief that everything follows a pattern, Anesu is building Africa's sector intelligence company — one platform at a time, across every major industry.</p>
+        <div class="founder-social">
+          <a href="https://www.linkedin.com/in/anesu-manjengwa-684766247" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/Iceyma02" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/m.a_tech_hub" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/263789967365" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- TOOLS (unchanged) -->
-  <section class="tools"><div class="container"><p class="tools-label">Stack we deploy on</p><div class="tools-row"><div class="tool-pill"><i class="fab fa-python"></i> Python</div><div class="tool-pill"><i class="fas fa-database"></i> SQL</div><div class="tool-pill"><i class="fas fa-chart-bar"></i> Plotly Dash</div><div class="tool-pill"><i class="fas fa-chart-line"></i> Streamlit</div><div class="tool-pill"><i class="fas fa-cloud"></i> Railway / Render</div><div class="tool-pill"><i class="fas fa-brain"></i> XGBoost / ML</div><div class="tool-pill"><i class="fas fa-map"></i> GIS / Mapbox</div><div class="tool-pill"><i class="fas fa-code"></i> Git / GitHub</div></div></div></section>
+  <section class="tools">
+    <div class="container">
+      <p class="tools-label">Stack we deploy on</p>
+      <div class="tools-row">
+        <div class="tool-pill"><i class="fab fa-python"></i> Python</div>
+        <div class="tool-pill"><i class="fas fa-database"></i> SQL</div>
+        <div class="tool-pill"><i class="fas fa-chart-bar"></i> Plotly Dash</div>
+        <div class="tool-pill"><i class="fas fa-chart-line"></i> Streamlit</div>
+        <div class="tool-pill"><i class="fas fa-cloud"></i> Railway / Render</div>
+        <div class="tool-pill"><i class="fas fa-brain"></i> XGBoost / ML</div>
+        <div class="tool-pill"><i class="fas fa-map"></i> GIS / Mapbox</div>
+        <div class="tool-pill"><i class="fas fa-code"></i> Git / GitHub</div>
+      </div>
+    </div>
+  </section>
 
-  <!-- CONTACT (unchanged) -->
   <section id="contact" class="contact">
-    <div class="container"><div class="contact-info fade-up"><span class="section-label">Get In Touch</span><h2>Ready to build your intelligence platform?</h2><p>Book a free 30-min strategy call. No pitch deck, no pressure — just clarity on how intelligence can transform your business.</p><ul class="contact-details"><li><div class="contact-icon"><i class="fas fa-envelope"></i></div><a href="mailto:matechhubservices@gmail.com">matechhubservices@gmail.com</a></li><li><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><a href="https://wa.me/263789967365" target="_blank">+263 78 996 7365</a></li><li><div class="contact-icon"><i class="fab fa-linkedin"></i></div><a href="https://www.linkedin.com/company/ma-techhub/" target="_blank">MA TechHub on LinkedIn</a></li><li><div class="contact-icon"><i class="fab fa-github"></i></div><a href="https://github.com/Iceyma02" target="_blank">github.com/Iceyma02</a></li><li><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><span style="color:var(--text-body);">Built in Harare · Serving every sector</span></li></ul></div>
-    <div class="contact-form fade-up"><form action="https://formspree.io/f/meelrpqj" method="POST"><div class="form-group"><input type="text" name="name" placeholder="Your name" required></div><div class="form-group"><input type="email" name="email" placeholder="Email address" required></div><div class="form-group"><input type="text" name="company" placeholder="Company / Organisation name"></div><div class="form-group"><select name="interest"><option value="" disabled selected>What sector / platform?</option><option value="retail-iq">Retail (ZimRetail IQ)</option><option value="agri-iq">Agriculture (AgriIQ)</option><option value="fmcg">FMCG (ProtonIQ)</option><option value="mining">Mining Dashboard</option><option value="supply-chain">Supply Chain / Logistics</option><option value="health">Healthcare Analytics (Roadmap)</option><option value="manufacturing">Manufacturing / Energy (Roadmap)</option><option value="fintech">FinTech / SaaS KPI Dashboard</option><option value="custom">Custom Platform Build</option><option value="retainer">Monthly Retainer</option></select></div><div class="form-group"><textarea name="message" placeholder="Tell us about your data challenge..."></textarea></div><button type="submit" class="btn-submit">Book Strategy Call →</button></form><p style="margin-top:1rem;font-size:0.8rem;color:var(--text-muted);text-align:center;">We reply within 24 hours.</p></div></div>
+    <div class="container">
+      <div class="contact-info fade-up">
+        <span class="section-label">Get In Touch</span>
+        <h2>Ready to build your intelligence platform?</h2>
+        <p>Book a free 30-min strategy call. No pitch deck, no pressure — just clarity on how intelligence can transform your business.</p>
+        <ul class="contact-details">
+          <li><div class="contact-icon"><i class="fas fa-envelope"></i></div><a href="mailto:matechhubservices@gmail.com">matechhubservices@gmail.com</a></li>
+          <li><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><a href="https://wa.me/263789967365" target="_blank">+263 78 996 7365</a></li>
+          <li><div class="contact-icon"><i class="fab fa-linkedin"></i></div><a href="https://www.linkedin.com/company/ma-techhub/" target="_blank">MA TechHub on LinkedIn</a></li>
+          <li><div class="contact-icon"><i class="fab fa-github"></i></div><a href="https://github.com/Iceyma02" target="_blank">github.com/Iceyma02</a></li>
+          <li><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><span style="color: var(--text-body); font-size: 0.85rem;">Built in Harare · Serving every sector</span></li>
+        </ul>
+      </div>
+      <div class="contact-form fade-up">
+        <form action="https://formspree.io/f/meelrpqj" method="POST">
+          <div class="form-group"><input type="text" name="name" placeholder="Your name" required></div>
+          <div class="form-group"><input type="email" name="email" placeholder="Email address" required></div>
+          <div class="form-group"><input type="text" name="company" placeholder="Company / Organisation name"></div>
+          <div class="form-group">
+            <select name="interest">
+              <option value="" disabled selected>What sector / platform?</option>
+              <option value="retail-iq">Retail (ZimRetail IQ)</option>
+              <option value="agri-iq">Agriculture (AgriIQ)</option>
+              <option value="fmcg">FMCG (ProtonIQ)</option>
+              <option value="mining">Mining Dashboard</option>
+              <option value="supply-chain">Supply Chain / Logistics</option>
+              <option value="health">Healthcare Analytics (Roadmap)</option>
+              <option value="manufacturing">Manufacturing / Energy (Roadmap)</option>
+              <option value="fintech">FinTech / SaaS KPI Dashboard</option>
+              <option value="custom">Custom Platform Build</option>
+              <option value="retainer">Monthly Retainer</option>
+            </select>
+          </div>
+          <div class="form-group"><textarea name="message" placeholder="Tell us about your data challenge..."></textarea></div>
+          <button type="submit" class="btn-submit">Book Strategy Call →</button>
+        </form>
+        <p style="margin-top: 1rem; font-size: 0.7rem; color: var(--text-muted); text-align: center;">We reply within 24 hours.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- FOOTER (unchanged) -->
-  <footer class="footer"><div class="container"><div class="footer-logo"><img src="Untitled_design-removebg-preview.png" alt="MA TechHub"><span class="logo-text">MA TechHub</span></div><div class="footer-links"><a href="#home">Home</a><a href="#platforms">Platforms</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#founder">Founder</a><a href="#contact">Contact</a></div><div class="footer-social"><a href="https://www.linkedin.com/company/ma-techhub/" target="_blank"><i class="fab fa-linkedin-in"></i></a><a href="https://github.com/Iceyma02" target="_blank"><i class="fab fa-github"></i></a><a href="https://www.instagram.com/m.a_tech_hub" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://wa.me/263789967365" target="_blank"><i class="fab fa-whatsapp"></i></a></div><div class="footer-bottom"><p>© 2026 MA TechHub. All rights reserved. Founded 2024 in Harare, Zimbabwe — intelligence for every sector.</p></div></div></footer>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <img src="Untitled_design-removebg-preview.png" alt="MA TechHub">
+        <span class="logo-text">MA TechHub</span>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#platforms">Platforms</a>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#founder">Founder</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/ma-techhub/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/Iceyma02" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/m.a_tech_hub" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/263789967365" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 MA TechHub. All rights reserved. Founded 2024 in Harare, Zimbabwe — intelligence for every sector.</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
     function closeMenu() { navLinks.classList.remove('active'); }
-    const observer = new IntersectionObserver((entries) => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0); } }); }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-up').forEach((el, i) => { el.dataset.delay = (i % 4) * 80; observer.observe(el); });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delay = entry.target.dataset.delay || 0;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach((el, i) => {
+      el.dataset.delay = (i % 4) * 80;
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
