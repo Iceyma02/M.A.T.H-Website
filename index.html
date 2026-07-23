@@ -45,6 +45,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      #neural-bg { display: none !important; }
     }
 
     body::before {
@@ -52,6 +53,12 @@
       position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none; z-index: 9999; opacity: 0.35;
+    }
+
+    /* Neural network animated background */
+    #neural-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      opacity: 0.55;
     }
 
     /* Navbar */
@@ -65,7 +72,7 @@
     .nav-links { display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 500; color: var(--text-body); }
     .nav-links a { transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
-    .nav-cta { background: var(--blue); color: white !important; padding: 0.55rem 1.3rem; border-radius: 40px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s; border: 1px solid transparent; white-space: nowrap; }
+    .nav-cta { background: var(--blue); color: white !important; padding: 0.55rem 1.3rem; border-radius: 40px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s; border: 1px solid transparent; white-space: nowrap; position: relative; overflow: hidden; }
     .nav-cta:hover { background: transparent; border-color: var(--blue-light); color: var(--blue-light) !important; }
     .menu-toggle { display: none; font-size: 1.3rem; color: white; cursor: pointer; }
 
@@ -103,6 +110,9 @@
     .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--text-body); padding: 0.8rem 1.8rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; border: 1px solid var(--border); cursor: pointer; }
     .btn-ghost:hover { color: var(--white); border-color: rgba(255, 255, 255, 0.2); }
 
+    .ripple { position: absolute; border-radius: 50%; transform: scale(0); animation: ripple-anim 0.6s linear; background: rgba(255,255,255,0.35); pointer-events: none; }
+    @keyframes ripple-anim { to { transform: scale(3.5); opacity: 0; } }
+
     /* Live animated dashboard (hero visual) */
     .hero-visual { flex: 1; }
     .live-dashboard { background: var(--ink-2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5); }
@@ -134,20 +144,20 @@
     .ld-line-dot { fill: var(--accent); }
 
     /* Ticker */
-    .ticker-bar { background: var(--ink-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0.7rem 0; overflow: hidden; }
+    .ticker-bar { background: var(--ink-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0.7rem 0; overflow: hidden; position: relative; z-index: 1; }
     .ticker-track { display: flex; gap: 2.5rem; animation: ticker 32s linear infinite; width: max-content; }
     .ticker-item { display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; color: var(--text-muted); font-size: 0.8rem; font-weight: 500; }
     .ticker-item i { color: var(--blue-light); font-size: 0.75rem; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    section { padding: 5rem 0; }
+    section { padding: 5rem 0; position: relative; z-index: 1; }
     .section-label { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
     .section-title { font-family: var(--font-head); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1rem; max-width: 700px; }
     .section-sub { color: var(--text-body); max-width: 600px; font-size: 1rem; line-height: 1.6; }
     .text-center { text-align: center; }
     .text-center .section-title, .text-center .section-sub { margin-left: auto; margin-right: auto; }
 
-    .platforms { background: var(--ink); }
+    .platforms { background: transparent; }
     .platforms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
     .platform-card { background: var(--ink-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem; transition: all 0.35s ease; position: relative; overflow: hidden; }
     .platform-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--blue-glow), transparent); opacity: 0; transition: opacity 0.35s; }
@@ -174,7 +184,7 @@
     .platform-links a.github { color: var(--text-muted); }
     .platform-links a.github:hover { color: var(--white); }
 
-    .sectors { background: var(--ink-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .sectors { background: rgba(17,20,31,0.7); backdrop-filter: blur(6px); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .sectors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
     .sector-card { background: var(--ink); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem 0.8rem; text-align: center; transition: all 0.25s; }
     .sector-card:hover { border-color: rgba(59, 130, 246, 0.4); transform: translateY(-3px); }
@@ -184,7 +194,7 @@
     .status-live { color: var(--accent); } .status-demo { color: #f59e0b; } .status-roadmap { color: var(--text-muted); }
 
     /* Proof section (replaces fake testimonials) */
-    .proof { background: linear-gradient(135deg, var(--ink), var(--ink-2)); }
+    .proof { background: transparent; }
     .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
     .proof-card { background: var(--ink-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; transition: all 0.3s; }
     .proof-card:hover { border-color: rgba(59, 130, 246, 0.4); transform: translateY(-4px); }
@@ -195,7 +205,7 @@
     .proof-card a:hover { color: var(--accent); }
     .proof-note { text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: 0.82rem; }
 
-    .expansion { background: var(--ink); }
+    .expansion { background: transparent; }
     .timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-top: 3rem; }
     .timeline-step { text-align: center; }
     .timeline-year { font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--blue-light); margin-bottom: 0.8rem; }
@@ -203,7 +213,7 @@
     .timeline-step h4 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
     .timeline-step p { font-size: 0.8rem; color: var(--text-muted); }
 
-    .zim-edge { background: linear-gradient(135deg, var(--ink-2), var(--ink-3)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 0; }
+    .zim-edge { background: rgba(26,31,48,0.75); backdrop-filter: blur(6px); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 0; }
     .zim-edge .container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
     .zim-edge h2 { font-family: var(--font-head); font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1.2rem; line-height: 1.2; }
     .zim-edge p { color: var(--text-body); line-height: 1.7; margin-bottom: 1rem; font-size: 0.9rem; }
@@ -215,7 +225,7 @@
     .zim-stat .num { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; }
     .zim-stat .lbl { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
 
-    .services { background: var(--ink-2); }
+    .services { background: rgba(17,20,31,0.7); backdrop-filter: blur(6px); }
     .service-group { margin-bottom: 3rem; }
     .service-group:last-child { margin-bottom: 0; }
     .service-group-title { font-family: var(--font-head); font-size: 0.9rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1.2rem; }
@@ -229,14 +239,14 @@
     .tech-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .tech-pills span { background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border); color: var(--text-muted); padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.65rem; font-weight: 500; }
 
-    .process { background: var(--ink); }
+    .process { background: transparent; }
     .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
     .process-step { text-align: center; }
     .step-num { width: 52px; height: 52px; border-radius: 50%; background: var(--ink-2); border: 1px solid var(--blue); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; color: var(--blue-light); }
     .process-step h3 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
     .process-step p { color: var(--text-body); font-size: 0.85rem; line-height: 1.6; }
 
-    .pricing { background: var(--ink-2); }
+    .pricing { background: rgba(17,20,31,0.7); backdrop-filter: blur(6px); }
     .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
     .pricing-card { background: var(--ink); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 1.5rem; transition: all 0.3s; position: relative; }
     .pricing-card:hover { transform: translateY(-4px); border-color: rgba(59, 130, 246, 0.3); }
@@ -261,7 +271,7 @@
     .local-pricing-note p { font-size: 0.8rem; color: var(--accent); margin-bottom: 0; }
     .local-pricing-note i { margin-right: 0.5rem; }
 
-    .founder { background: var(--ink); }
+    .founder { background: transparent; }
     .founder .container { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: center; }
     .founder-img-wrap { position: relative; }
     .founder-img-wrap img { width: 100%; border-radius: var(--radius); display: block; filter: grayscale(20%); }
@@ -274,7 +284,7 @@
     .founder-social a { width: 38px; height: 38px; border-radius: 50%; background: var(--ink-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; transition: all 0.3s; }
     .founder-social a:hover { background: var(--blue); color: white; border-color: var(--blue); }
 
-    .blog { background: var(--ink-2); }
+    .blog { background: rgba(17,20,31,0.7); backdrop-filter: blur(6px); }
     .blog-card { background: var(--ink); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; max-width: 700px; margin: 2.5rem auto 0; transition: all 0.3s; }
     .blog-card:hover { border-color: rgba(59, 130, 246, 0.3); }
     .blog-tag { display: inline-block; background: var(--blue); color: white; padding: 0.25rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1rem; }
@@ -283,14 +293,14 @@
     .blog-meta { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
     .blog-meta span { color: var(--text-muted); font-size: 0.8rem; }
 
-    .tools { background: var(--ink); padding: 3rem 0; border-top: 1px solid var(--border); }
+    .tools { background: transparent; padding: 3rem 0; border-top: 1px solid var(--border); }
     .tools-label { text-align: center; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.5rem; }
     .tools-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; }
     .tool-pill { display: flex; align-items: center; gap: 0.4rem; background: var(--ink-2); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500; color: var(--text-body); transition: all 0.2s; }
     .tool-pill:hover { border-color: rgba(59, 130, 246, 0.3); color: var(--white); }
     .tool-pill i { color: var(--blue-light); font-size: 0.9rem; }
 
-    .contact { background: var(--ink-2); }
+    .contact { background: rgba(17,20,31,0.7); backdrop-filter: blur(6px); }
     .contact .container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .contact-info h2 { font-family: var(--font-head); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.8rem; line-height: 1.2; }
     .contact-info>p { color: var(--text-body); margin-bottom: 1.8rem; line-height: 1.7; font-size: 0.9rem; }
@@ -307,10 +317,10 @@
     .form-group textarea { min-height: 100px; resize: vertical; }
     .form-group select { color: var(--text-muted); }
     .form-group select option { background: var(--ink-2); }
-    .btn-submit { width: 100%; padding: 0.9rem; background: var(--blue); color: white; border: none; border-radius: 50px; font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; }
+    .btn-submit { width: 100%; padding: 0.9rem; background: var(--blue); color: white; border: none; border-radius: 50px; font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
     .btn-submit:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35); }
 
-    .footer { background: var(--ink); border-top: 1px solid var(--border); padding: 2.5rem 0; }
+    .footer { background: var(--ink); border-top: 1px solid var(--border); padding: 2.5rem 0; position: relative; z-index: 1; }
     .footer .container { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; }
     .footer-logo { display: flex; align-items: center; gap: 0.6rem; }
     .footer-logo img { height: 32px; }
@@ -357,6 +367,8 @@
   </style>
 </head>
 <body>
+
+  <canvas id="neural-bg"></canvas>
 
   <nav class="navbar" id="navbar">
     <div class="container">
@@ -466,13 +478,13 @@
       <div class="fade-up">
         <span class="section-label">Live Intelligence Platforms</span>
         <h2 class="section-title">Built for Zimbabwe.<br>Scalable across Africa.</h2>
-        <p class="section-sub">Real platforms you can interact with today. Global BI tools have zero knowledge of TIMB, GMB, COTTCO, or ZWG dynamics. We built what they couldn't.</p>
+        <p class="section-sub">Real, working platforms you can interact with today. Global BI tools have zero knowledge of TIMB, GMB, COTTCO, or ZWG dynamics. We built what they couldn't.</p>
       </div>
       <div class="platforms-grid">
         <div class="platform-card featured fade-up">
           <div class="platform-icon icon-teal"><i class="fas fa-store"></i><span class="platform-badge">Live</span></div>
           <h3>ZimRetail IQ</h3>
-          <p>17-module retail intelligence platform for Zimbabwe's retail sector. Real-time sales tracking, inventory visibility, ZIMRA compliance, ZWL/USD reconciliation.</p>
+          <p>17-module retail intelligence platform for Zimbabwe's retail sector. Sales tracking, inventory visibility, ZIMRA-aware reconciliation, ZWL/USD tracking.</p>
           <div class="platform-tags"><span>Plotly Dash</span><span>Python</span><span>Railway</span></div>
           <div class="platform-links">
             <a href="https://web-production-474c8.up.railway.app" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
@@ -552,13 +564,13 @@
       <div class="text-center fade-up">
         <span class="section-label">See It, Don't Just Read About It</span>
         <h2 class="section-title">Real platforms. Click and explore.</h2>
-        <p class="section-sub">No claims to take on faith — every platform below is live. Open it, click around, and judge for yourself.</p>
+        <p class="section-sub">No claims to take on faith — every platform below is live and interactive. Open it, click around, and judge for yourself.</p>
       </div>
       <div class="proof-grid">
         <div class="proof-card fade-up">
           <div class="proof-stat">130,000+</div>
-          <h4>Rows processed live — ZimRetail IQ</h4>
-          <p>17 modules covering sales, inventory, and ZIMRA-compliant reconciliation, running on real Zimbabwean retail data.</p>
+          <h4>Rows handled — ZimRetail IQ</h4>
+          <p>17 modules covering sales, inventory, and ZIMRA-aware reconciliation, modeled on realistic Zimbabwean retail data structures.</p>
           <a href="https://web-production-474c8.up.railway.app" target="_blank">Open the live dashboard <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="proof-card fade-up">
@@ -818,6 +830,17 @@
               <option value="retainer">Monthly Retainer</option>
             </select>
           </div>
+          <div class="form-group">
+            <select name="budget">
+              <option value="" disabled selected>What's your budget range?</option>
+              <option value="under-800">Under $800</option>
+              <option value="800-1.5k">$800 – $1.5k</option>
+              <option value="1.5k-3k">$1.5k – $3k</option>
+              <option value="3k-5k">$3k – $5k</option>
+              <option value="5k-plus">$5k+</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+          </div>
           <div class="form-group"><textarea name="message" placeholder="Tell us about your data challenge..."></textarea></div>
           <button type="submit" class="btn-submit">Book Strategy Call →</button>
         </form>
@@ -942,6 +965,97 @@
     setInterval(randomBars, 2600);
     setInterval(randomLine, 3400);
     setInterval(tickKPIs, 3000);
+
+    /* ================= Neural network animated background ================= */
+    (function () {
+      const canvas = document.getElementById('neural-bg');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h, nodes;
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        const count = Math.min(70, Math.floor((w * h) / 22000));
+        nodes = Array.from({ length: count }, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          r: 1 + Math.random() * 1.6,
+        }));
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      let mouse = { x: -9999, y: -9999 };
+      window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+      window.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+      const LINK_DIST = 140;
+      const MOUSE_DIST = 180;
+
+      function step() {
+        ctx.clearRect(0, 0, w, h);
+        for (const n of nodes) {
+          n.x += n.vx; n.y += n.vy;
+          if (n.x < 0 || n.x > w) n.vx *= -1;
+          if (n.y < 0 || n.y > h) n.vy *= -1;
+        }
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            const a = nodes[i], b = nodes[j];
+            const dx = a.x - b.x, dy = a.y - b.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < LINK_DIST) {
+              const alpha = (1 - dist / LINK_DIST) * 0.22;
+              ctx.strokeStyle = `rgba(0, 217, 184, ${alpha})`;
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
+          }
+          const dmx = nodes[i].x - mouse.x, dmy = nodes[i].y - mouse.y;
+          const mdist = Math.sqrt(dmx * dmx + dmy * dmy);
+          if (mdist < MOUSE_DIST) {
+            const alpha = (1 - mdist / MOUSE_DIST) * 0.35;
+            ctx.strokeStyle = `rgba(59, 130, 246, ${alpha})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.stroke();
+          }
+        }
+        for (const n of nodes) {
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(59, 130, 246, 0.55)';
+          ctx.fill();
+        }
+        requestAnimationFrame(step);
+      }
+      step();
+    })();
+
+    /* Button ripple effect */
+    document.querySelectorAll('.btn-primary, .btn-submit, .nav-cta').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        const rect = this.getBoundingClientRect();
+        const circle = document.createElement('span');
+        const size = Math.max(rect.width, rect.height);
+        circle.className = 'ripple';
+        circle.style.width = circle.style.height = size + 'px';
+        circle.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        circle.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        this.appendChild(circle);
+        setTimeout(() => circle.remove(), 650);
+      });
+    });
   </script>
 </body>
 </html>
